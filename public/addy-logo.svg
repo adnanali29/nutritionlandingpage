@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Head -->
+  <circle cx="100" cy="34" r="16" fill="#E0233B"/>
+  <!-- Barbell bar -->
+  <rect x="18" y="72" width="164" height="11" rx="5.5" fill="#E0233B"/>
+  <!-- Left weight plates -->
+  <rect x="10" y="60" width="14" height="35" rx="5" fill="#E0233B"/>
+  <rect x="20" y="65" width="8" height="25" rx="3" fill="#c01830"/>
+  <!-- Right weight plates -->
+  <rect x="176" y="60" width="14" height="35" rx="5" fill="#E0233B"/>
+  <rect x="172" y="65" width="8" height="25" rx="3" fill="#c01830"/>
+  <!-- Body — A-shape torso -->
+  <path d="M100 50 L68 110 L82 110 L100 75 L118 110 L132 110 Z" fill="#E0233B"/>
+  <!-- Legs -->
+  <path d="M82 108 L72 140 L86 140 L100 112 L114 140 L128 140 L118 108 Z" fill="#E0233B"/>
+  <!-- Arms up to barbell -->
+  <path d="M68 110 Q52 95 48 79" stroke="#E0233B" strokeWidth="12" strokeLinecap="round" fill="none"/>
+  <path d="M132 110 Q148 95 152 79" stroke="#E0233B" strokeWidth="12" strokeLinecap="round" fill="none"/>
+  <!-- Text ADDY FITNESS -->
+  <text x="100" y="168" textAnchor="middle" fontFamily="Montserrat, Arial Black, sans-serif" fontWeight="900" fontSize="26" letterSpacing="3" fill="#E0233B">ADDY</text>
+  <text x="100" y="196" textAnchor="middle" fontFamily="Montserrat, Arial Black, sans-serif" fontWeight="900" fontSize="26" letterSpacing="3" fill="#E0233B">FITNESS</text>
+</svg>
