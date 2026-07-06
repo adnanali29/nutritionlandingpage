@@ -156,7 +156,41 @@ interface Testimonial {
   imageUrl?: string;
 }
 
+const FAQS = [
+  {
+    category: "PCOS",
+    q: "Can PCOS be reversed with diet alone?",
+    a: "While PCOS cannot be permanently \"cured,\" its symptoms can be effectively managed and reversed. Our clinical plans target insulin resistance—the root cause of PCOS—using balanced Indian meals (complex carbs, protein, and healthy fats) to restore hormonal balance and regulate periods without extreme restriction."
+  },
+  {
+    category: "PCOS",
+    q: "Do I need to stop eating rice and roti to manage PCOS?",
+    a: "Absolutely not. Banning carbs can actually worsen hormonal stress. We design your plan using traditional grains like hand-pounded rice, wheat, and millets, paired with precise protein and fiber portions to control insulin spikes while letting you enjoy your daily meals."
+  },
+  {
+    category: "Post Pregnancy",
+    q: "How soon can I start my post-pregnancy weight loss plan?",
+    a: "You can start a safe, nourishment-focused plan after 6 weeks for a normal delivery, and 8 weeks for a C-section, after consulting your doctor. Our plans prioritize rebuilding pelvic floor strength, restoring bone density, and providing clean nutrition that supports lactation."
+  },
+  {
+    category: "Post Pregnancy",
+    q: "Will losing weight affect my breast milk supply?",
+    a: "No. Our post-pregnancy plans focus on nutrient density rather than calorie starvation. We ensure you get ample calcium, iron, healthy fats, and galactagogues (lactation boosters) so you lose fat safely while keeping your milk supply rich and steady."
+  },
+  {
+    category: "Diabetes Control",
+    q: "Is it possible to reduce diabetes medication through nutrition?",
+    a: "Yes, under clinical and medical guidance. Many of our members have successfully reduced or completely stopped their diabetes medication by improving insulin sensitivity. We do this through medical nutrition therapy, structured activity, and continuous glucose monitoring support."
+  },
+  {
+    category: "Diabetes Control",
+    q: "Can diabetic patients eat fruits and potatoes on this plan?",
+    a: "Yes. Diabetes management is about managing the total glycemic load of the meal, not just banning individual ingredients. We teach you how to smart-pair carbohydrates with fiber, healthy fats, and protein so you can safely enjoy a wide variety of local foods without blood sugar spikes."
+  }
+];
+
 export default function Home() {
+  const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [heroBgIndex, setHeroBgIndex] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -215,7 +249,6 @@ export default function Home() {
       phone: formData.get("fphone"),
       age: parseInt(formData.get("fage") as string) || 0,
       height: formData.get("fheight"),
-      email: formData.get("femail"),
       gender: formData.get("fgender"),
       concern: formData.get("fconcern"),
       preferredDate: formData.get("fdate"),
@@ -305,14 +338,14 @@ export default function Home() {
         <div className="wrap hero-grid">
           <div className="hero-copy">
             {/* Eyebrow REMOVED as requested */}
-            <h1>Your Health.<br />Your <em>Transformation.</em></h1>
+            <h1>Your Health.<br /><span style={{ whiteSpace: "nowrap" }}>Your <em>Transformation.</em></span></h1>
             <p className="sub">
-              Fitness training, clinical nutrition and doctor consultation — all in one place.
-              Personalized, doctor-backed plans built around real Indian food, not punishment diets.
+              From <strong>weight loss</strong> and <strong>diabetes control</strong> to <strong>PCOS</strong>, <strong>thyroid care</strong>, and <strong>post-pregnancy fat loss</strong>, Addy Fitness brings together fitness training, clinical nutrition, and doctor consultation under one roof. Get personalized, doctor-backed health plans designed around real Indian food, sustainable fitness, and lasting results not restrictive diets.
             </p>
             <div className="cta-row">
               <a href="#rx-form" className="btn btn-primary">Book Free Consultation →</a>
-              <a href="https://wa.me/9861208460" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              <a href="https://wa.me/919861787335" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+                <svg viewBox="0 0 448 512" width="16" height="16" fill="#25D366" style={{ marginRight: "8px" }}><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                 Chat on WhatsApp
               </a>
             </div>
@@ -373,12 +406,6 @@ export default function Home() {
                   <label htmlFor="fheight">Height</label>
                   <input type="text" id="fheight" name="fheight" placeholder="e.g. 5&apos;6&quot; or 168 cm" />
                 </div>
-              </div>
-
-              {/* Row 3: Email (full width) */}
-              <div className="field">
-                <label htmlFor="femail">Email *</label>
-                <input type="email" id="femail" name="femail" placeholder="Enter email" required />
               </div>
 
               {/* Row 4: Gender */}
@@ -665,6 +692,14 @@ export default function Home() {
               <span key={c} className="chip">{c}</span>
             ))}
           </div>
+
+          <div className="cta-row cta-row-center" style={{ marginTop: "40px" }}>
+            <a href="#rx-form" className="btn btn-primary">Book Free Consultation</a>
+            <a href="https://wa.me/919861787335" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              <svg viewBox="0 0 448 512" width="16" height="16" fill="#25D366" style={{ marginRight: "8px" }}><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+              Discuss on WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
@@ -739,7 +774,11 @@ export default function Home() {
             <h3>Stop guessing. Start healing.</h3>
             <p>2000+ members replaced generic apps with a doctor-backed plan built around their food, body and budget — starting at ₹699.</p>
             <div className="cta-row">
-              <a href="#rx-form" className="btn btn-primary">Book My Free Consultation</a>
+              <a href="#rx-form" className="btn btn-primary btn-sm">Book Free Consultation</a>
+              <a href="https://wa.me/919861787335" target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm">
+                <svg viewBox="0 0 448 512" width="16" height="16" fill="#25D366" style={{ marginRight: "8px" }}><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                WhatsApp Us
+              </a>
             </div>
           </div>
         </div>
@@ -796,6 +835,14 @@ export default function Home() {
                 <p>{s.desc}</p>
               </div>
             ))}
+          </div>
+
+          <div className="cta-row cta-row-center" style={{ marginTop: "48px" }}>
+            <a href="#rx-form" className="btn btn-primary">Start My Transformation</a>
+            <a href="https://wa.me/919861787335" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              <svg viewBox="0 0 448 512" width="16" height="16" fill="#25D366" style={{ marginRight: "8px" }}><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+              Chat with a Coach
+            </a>
           </div>
         </div>
       </section>
@@ -871,16 +918,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ================= FAQ SECTION ================= */}
+      <section className="pad band-alt" id="faq">
+        <div className="wrap">
+          <div className="section-head center" style={{ marginLeft: "auto", marginRight: "auto" }}>
+            <span className="eyebrow">Got Questions?</span>
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about our clinical nutrition and training programs.</p>
+          </div>
+
+          <div className="faq-grid">
+            {FAQS.map((faq, idx) => (
+              <div
+                key={idx}
+                className={`faq-item-card${activeFaq === idx ? " active" : ""}`}
+                onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
+              >
+                <div className="faq-question">
+                  <h4>
+                    {faq.q}
+                  </h4>
+                  <span className="faq-toggle">+</span>
+                </div>
+                <div className="faq-answer">
+                  <p>{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ================= FINAL CTA ================= */}
-      <section style={{ padding: "48px 0 96px" }}>
-        <div className="final-cta">
-          <div>
-            <h2>Ready to transform your health?</h2>
-            <p>Join 1000+ members who replaced guesswork with a doctor-backed, Indian-food plan built for them.</p>
-            <div className="cta-row">
-              <a href="#rx-form" className="btn btn-primary">Book Free Consultation</a>
-              <a href="https://wa.me/9861208460" target="_blank" rel="noopener noreferrer" className="btn btn-outline">Chat on WhatsApp</a>
-            </div>
+      <section style={{ padding: "20px 0 12px" }}>
+        <div className="final-cta" style={{ flexDirection: "column", textAlign: "center", justifyContent: "center", padding: "32px 32px 16px" }}>
+          <h2 style={{ fontSize: "clamp(36px, 7vw, 76px)", fontWeight: 900, letterSpacing: "1px", textTransform: "uppercase", color: "#fff", marginBottom: "8px", maxWidth: "100%", lineHeight: 0.95 }}>
+            NEVER GIVE UP
+          </h2>
+          <p style={{ fontSize: "clamp(13px, 1.2vw, 14.5px)", lineHeight: "1.4", fontStyle: "italic", color: "rgba(255, 255, 255, 0.95)", maxWidth: "600px", margin: "0 auto 6px", fontWeight: 500 }}>
+            "No matter who you are, where you come from, or what others say about you never give up on yourself. Every setback is preparing you for a stronger comeback. Keep believing, keep fighting, and keep moving forward. Your greatest victory begins the moment you refuse to quit."
+          </p>
+          <div style={{ fontSize: "11.5px", color: "rgba(255, 255, 255, 0.75)", marginBottom: "8px" }}>
+            — <strong style={{ color: "#fff", fontWeight: 700 }}>Adnan Ali</strong>, Founder, Addy Fitness
+          </div>
+          <div className="cta-row cta-row-center" style={{ marginTop: "4px" }}>
+            <a href="#rx-form" className="btn btn-primary btn-sm">
+              Start Your Comeback
+            </a>
           </div>
         </div>
       </section>
@@ -900,7 +984,7 @@ export default function Home() {
                 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
                 </a>
-                <a href="https://wa.me/9861787335" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <a href="https://wa.me/919861787335" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z"/></svg>
                 </a>
                 <a href="https://www.linkedin.com/company/addy-fitness/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -945,8 +1029,24 @@ export default function Home() {
       {/* ================= STICKY MOBILE CTA ================= */}
       <div className="sticky-cta">
         <a href="#rx-form" className="btn btn-primary">Book Free Consult</a>
-        <a href="https://wa.me/9861208460" target="_blank" rel="noopener noreferrer" className="btn btn-dark">WhatsApp</a>
+        <a href="https://wa.me/919861787335" target="_blank" rel="noopener noreferrer" className="btn btn-dark">
+          <svg viewBox="0 0 448 512" width="16" height="16" fill="#fff" style={{ marginRight: "8px" }}><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+          WhatsApp
+        </a>
       </div>
+
+      {/* ================= FLOATING WHATSAPP BUTTON ================= */}
+      <a
+        href="https://wa.me/919861787335"
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat on WhatsApp"
+      >
+        <svg viewBox="0 0 448 512">
+          <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+      </a>
     </>
   );
 }
