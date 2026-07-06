@@ -80,19 +80,25 @@ const IconPhoto = () => (
 
 
 
-/* ─── Health concerns (from image, Mental Wellness excluded) ─── */
 const CONCERNS = [
   "None",
+  "Weight Loss",
+  "Weight Gain",
   "Thyroid (Hypo/Hyper)",
   "PCOS/PCOD",
   "Diabetes/Pre-Diabetes",
+  "Gestation (Pregnancy)",
+  "Senior Nutrition",
+  "Blood Pressure",
+  "Renal Function(Kidney)",
+  "Child Nutrition",
+  "Post-Pregnancy Recovery",
+  "Low Iron/Anemia",
   "High Cholesterol",
   "Fatty Liver",
   "IBS/Digestive Issues",
   "Hormonal Imbalance",
-  "Low Iron/Anemia",
   "Joint/Bone Health",
-  "Post-Pregnancy Recovery",
   "Other (Please specify)",
 ];
 
