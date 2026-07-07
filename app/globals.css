@@ -969,7 +969,7 @@ footer {
   display: flex;
   gap: 0;
   width: max-content;
-  animation: marquee-scroll 5s linear infinite;
+  animation: marquee-scroll 30s linear infinite;
 }
 .carousel-track:hover { animation-play-state: paused; }
 .carousel-slide {
@@ -1038,7 +1038,7 @@ footer {
   display: flex;
   gap: 0;
   width: max-content;
-  animation: marquee-scroll 6s linear infinite;
+  animation: marquee-scroll 35s linear infinite;
 }
 .food-carousel-track:hover { animation-play-state: paused; }
 .food-slide {
@@ -1106,7 +1106,7 @@ footer {
   display: flex;
   gap: 0;
   width: max-content;
-  animation: marquee-scroll 7s linear infinite;
+  animation: marquee-scroll 40s linear infinite;
 }
 .test-carousel-track:hover { animation-play-state: paused; }
 .test-slide {
@@ -1178,16 +1178,16 @@ footer {
 @media (max-width: 900px) {
   .carousel-slide, .test-slide { flex: 0 0 50cqw; }
   .food-slide { flex: 0 0 33.333cqw; }
-  .carousel-track { animation-duration: 4s; }
-  .food-carousel-track { animation-duration: 5s; }
-  .test-carousel-track { animation-duration: 5s; }
+  .carousel-track { animation-duration: 25s; }
+  .food-carousel-track { animation-duration: 30s; }
+  .test-carousel-track { animation-duration: 35s; }
 }
 @media (max-width: 600px) {
   .carousel-slide, .test-slide { flex: 0 0 80cqw; }
   .food-slide { flex: 0 0 50cqw; }
-  .carousel-track { animation-duration: 3s; }
-  .food-carousel-track { animation-duration: 4s; }
-  .test-carousel-track { animation-duration: 4s; }
+  .carousel-track { animation-duration: 20s; }
+  .food-carousel-track { animation-duration: 25s; }
+  .test-carousel-track { animation-duration: 30s; }
 }
 
 /* ---------- HAMBURGER TOGGLE BUTTON ---------- */
