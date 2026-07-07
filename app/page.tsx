@@ -331,9 +331,9 @@ export default function Home() {
   const [foodSlides, setFoodSlides] = useState<FoodSlide[]>(FOOD_SLIDES);
   const [testimonials, setTestimonials] = useState<Testimonial[]>(TESTIMONIALS);
 
-  const galleryCarousel = useInfiniteCarousel(transformationSlides.length, 4000);
+  const galleryCarousel = useInfiniteCarousel(transformationSlides.length, 5500);
   const foodCarousel = useInfiniteCarousel(foodSlides.length, 3000);
-  const testimonialCarousel = useInfiniteCarousel(testimonials.length, 4500);
+  const testimonialCarousel = useInfiniteCarousel(testimonials.length, 6000);
   const [urgencyIndex, setUrgencyIndex] = useState(0);
 
   // Cycle urgency message loop every 3.5 seconds
@@ -1022,7 +1022,7 @@ export default function Home() {
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">Success Stories</span>
-            <h2>Loved by 1000+ achievers</h2>
+            <h2>Loved by 2000+ achievers</h2>
             <p>Real members, real reports, real change — under medical guidance.</p>
           </div>
           

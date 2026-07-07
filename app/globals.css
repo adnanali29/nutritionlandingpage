@@ -982,6 +982,7 @@ footer {
   font-size: 13px;
 }
 .carousel-btn {
+  display: none !important;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
