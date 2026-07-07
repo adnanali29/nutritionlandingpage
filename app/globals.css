@@ -912,6 +912,17 @@ footer {
   .hero-grid { grid-template-columns: 1fr; gap: 44px; }
   .hero-visual { display: none; }
   .stat-row { grid-template-columns: repeat(2, 1fr); row-gap: 22px; }
+  .stat-row-3 { grid-template-columns: repeat(3, 1fr) !important; row-gap: 0 !important; }
+  .stat-row-3 .stat {
+    padding: 0 6px !important;
+    align-items: center !important;
+    text-align: center !important;
+    border-right: 1px solid var(--line) !important;
+  }
+  .stat-row-3 .stat:nth-child(2) { border-right: 1px solid var(--line) !important; }
+  .stat-row-3 .stat:last-child { border-right: none !important; }
+  .stat-row-3 .stat .num { font-size: 20px !important; }
+  .stat-row-3 .stat .lbl { font-size: 9px !important; margin-top: 4px !important; line-height: 1.2 !important; }
   .stat-row .stat:nth-child(2) { border-right: none; }
   .service-grid { grid-template-columns: repeat(2, 1fr); }
   .usp-grid { grid-template-columns: repeat(2, 1fr) !important; }
