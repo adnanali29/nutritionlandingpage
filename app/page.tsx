@@ -660,7 +660,7 @@ export default function Home() {
               <div
                 className="carousel-track"
                 style={{
-                  transform: `translateX(-${galleryCarousel.index * (100 / (transformationSlides.length || 1))}%)`,
+                  transform: `translateX(-${galleryCarousel.index * (100 / (3 * (transformationSlides.length || 1)))}%)`,
                   transition: galleryCarousel.isTransitioning ? "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)" : "none"
                 }}
               >
@@ -734,7 +734,7 @@ export default function Home() {
               <div
                 className="food-carousel-track"
                 style={{
-                  transform: `translateX(-${foodCarousel.index * (100 / (foodSlides.length || 1))}%)`,
+                  transform: `translateX(-${foodCarousel.index * (100 / (3 * (foodSlides.length || 1)))}%)`,
                   transition: foodCarousel.isTransitioning ? "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)" : "none"
                 }}
               >
@@ -1035,7 +1035,7 @@ export default function Home() {
               <div
                 className="test-carousel-track"
                 style={{
-                  transform: `translateX(-${testimonialCarousel.index * (100 / (testimonials.length || 1))}%)`,
+                  transform: `translateX(-${testimonialCarousel.index * (100 / (3 * (testimonials.length || 1)))}%)`,
                   transition: testimonialCarousel.isTransitioning ? "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)" : "none"
                 }}
               >

@@ -1153,14 +1153,14 @@ footer {
 
 /* Responsive carousel */
 @media (max-width: 900px) {
-  .food-slide, .test-slide { flex: 0 0 50%; }
+  .carousel-slide, .food-slide, .test-slide { flex: 0 0 50%; }
   .carousel-btn-prev { left: -10px; }
   .carousel-btn-next { right: -10px; }
 }
 @media (max-width: 600px) {
-  .food-slide, .test-slide { flex: 0 0 85%; }
-  .carousel-btn-prev { left: 0; }
-  .carousel-btn-next { right: 0; }
+  .carousel-slide, .food-slide, .test-slide { flex: 0 0 100%; }
+  .carousel-btn-prev { left: 4px; }
+  .carousel-btn-next { right: 4px; }
 }
 
 /* ---------- HAMBURGER TOGGLE BUTTON ---------- */
@@ -1543,6 +1543,43 @@ footer {
   }
   .urgency-message {
     font-size: 14px;
+  }
+  /* Sleek navbar on mobile */
+  header.site {
+    padding: 6px 12px !important;
+  }
+  .nav {
+    min-height: 50px !important;
+    padding: 2px 14px !important;
+  }
+  .nav-logo-img {
+    height: 38px !important;
+  }
+  /* Mobile stats single-line */
+  .stat-row-3,
+  .stat-row {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 4px !important;
+    margin-top: 24px !important;
+    padding-top: 16px !important;
+  }
+  .stat-row .stat {
+    padding: 0 4px !important;
+    align-items: center !important;
+    text-align: center !important;
+    border-right: 1px solid var(--line) !important;
+  }
+  .stat-row .stat:last-child {
+    border-right: none !important;
+  }
+  .stat .num {
+    font-size: 18px !important;
+  }
+  .stat .lbl {
+    font-size: 8px !important;
+    letter-spacing: 0.02em !important;
+    margin-top: 3px !important;
+    line-height: 1.2 !important;
   }
 }
 
