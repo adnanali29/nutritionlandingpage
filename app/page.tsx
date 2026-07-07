@@ -129,6 +129,124 @@ const TESTIMONIALS = [
   { name: "Ananya Sen, 34", program: "Clinical Nutrition Program", result: "✓ Managed PCOS & gut health", quote: "Severe bloating and PCOS symptoms had taken over my life. A gut-friendly nutrition schedule from the clinical team turned things around within weeks." }
 ];
 
+const DISEASE_ICONS = [
+  {
+    name: "Doctor",
+    color: "#e6f4fe",
+    textColor: "#0d8ecf",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" />
+        <path d="M6 20v-2a6 6 0 0 1 12 0v2" />
+        <circle cx="12" cy="7" r="1" />
+        <path d="M19 5h4M21 3v4" />
+      </svg>
+    )
+  },
+  {
+    name: "PCOS",
+    color: "#e6f4fe",
+    textColor: "#0d8ecf",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="9" r="6" />
+        <path d="M12 15v7M9 19h6" />
+        <path d="M12 6a3 3 0 0 1 3 3" strokeWidth="1.5" />
+      </svg>
+    )
+  },
+  {
+    name: "Weight Machine",
+    color: "#e6f4fe",
+    textColor: "#0d8ecf",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="3" />
+        <circle cx="12" cy="9" r="3" />
+        <path d="m11 9 2-2" />
+        <path d="M6 16h12" />
+      </svg>
+    )
+  },
+  {
+    name: "Diabetes",
+    color: "#e6f4fe",
+    textColor: "#0d8ecf",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 8.7 5 15a7 7 0 0 0 7 7z" />
+        <path d="M12 12v4M10 14h4" />
+      </svg>
+    )
+  },
+  {
+    name: "Kidney",
+    color: "#e6f4fe",
+    textColor: "#0d8ecf",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M7 6c-2 1.5-3 4-3 6.5s1 5 3 6.5c1.5 1 3.5.5 4.5-1l1-1.5c.5-.8.5-1.8 0-2.6L11 11.5c-1-1.5-3-2-4.5-1Z" />
+        <path d="M17 6c2 1.5 3 4 3 6.5s-1 5-3 6.5c-1.5 1-3.5.5-4.5-1l-1-1.5c-.5-.8-.5-1.8 0-2.6l1.5-2.4c1-1.5 3-2 4.5-1Z" />
+      </svg>
+    )
+  },
+  {
+    name: "Liver",
+    color: "#e6f4fe",
+    textColor: "#0d8ecf",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20.5 8c-1.5-2-4.5-3.5-8.5-3C7.5 5.5 4 8.5 3 12c-1 3.5 1 7.5 4.5 8.5 3.5 1 8.5.5 11-2.5 2.5-3 3.5-8 2-10Z" />
+      </svg>
+    )
+  },
+  {
+    name: "Stomach",
+    color: "#e6f4fe",
+    textColor: "#0d8ecf",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M15 3c-2.5 0-5 2-6.5 4.5C7 10 7 13 8.5 15.5c1 1.5 2.5 2.5 4.5 2.5 3.5 0 6.5-3 6.5-6.5S17.5 3 15 3Z" />
+        <path d="M9 7.5C6 7.5 4.5 9 4.5 11c0 3 2.5 5 4.5 6.5" />
+      </svg>
+    )
+  },
+  {
+    name: "Bone",
+    color: "#e6f4fe",
+    textColor: "#0d8ecf",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18.5 5.5A2.5 2.5 0 0 0 15 9l-6 6a2.5 2.5 0 0 0-3.5 3.5A2.5 2.5 0 0 0 9 15l6-6a2.5 2.5 0 0 0 3.5-3.5Z" />
+        <circle cx="5.5" cy="18.5" r="1.5" fill="currentColor" />
+        <circle cx="18.5" cy="5.5" r="1.5" fill="currentColor" />
+      </svg>
+    )
+  },
+  {
+    name: "Medicine",
+    color: "#e6f4fe",
+    textColor: "#0d8ecf",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
+        <path d="m8.5 8.5 7 7" />
+      </svg>
+    )
+  },
+  {
+    name: "Mental Health",
+    color: "#e6f4fe",
+    textColor: "#0d8ecf",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1 0-3.12 3 3 0 0 1 0-3.88 2.5 2.5 0 0 1 0-3.12A2.5 2.5 0 0 1 9.5 2Z" />
+        <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 0-3.12 3 3 0 0 0 0-3.88 2.5 2.5 0 0 0 0-3.12A2.5 2.5 0 0 0 14.5 2Z" />
+      </svg>
+    )
+  }
+];
+
 const HERO_BGS = [
   "https://i.ibb.co/yBGZQfRt/1.webp",
   "https://i.ibb.co/gMwb2q60/2.webp",
@@ -216,6 +334,57 @@ export default function Home() {
   const galleryCarousel = useInfiniteCarousel(transformationSlides.length, 4000);
   const foodCarousel = useInfiniteCarousel(foodSlides.length, 3000);
   const testimonialCarousel = useInfiniteCarousel(testimonials.length, 4500);
+  const [urgencyIndex, setUrgencyIndex] = useState(0);
+
+  // Cycle urgency message loop every 3.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setUrgencyIndex((prev) => prev + 1);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const URGENCY_SERVICES = [
+    "Weight Loss Program",
+    "Diabetes Management",
+    "PCOS Care Plan",
+    "Thyroid Management",
+    "Post-Pregnancy Care",
+    "Clinical Nutrition",
+    "Personal Fitness Training",
+    "Gut Health Reset"
+  ];
+
+  const INDIAN_NAMES = [
+    "Priya", "Ananya", "Riya", "Sneha", "Aditi", "Pooja", "Meera", "Neha", "Divya", "Kriti",
+    "Shreya", "Kavya", "Tanvi", "Ishita", "Nisha", "Amit", "Rahul", "Rohan", "Aditya", "Vikram",
+    "Sandeep", "Deepak", "Rajesh", "Sanjay", "Anil", "Arjun", "Karan", "Gaurav", "Vijay", "Abhishek"
+  ];
+
+  const getUrgencyMessage = () => {
+    const serviceIndex = urgencyIndex % URGENCY_SERVICES.length;
+    const service = URGENCY_SERVICES[serviceIndex];
+    const isSlotMessage = urgencyIndex % 2 === 0;
+
+    if (isSlotMessage) {
+      const twoDayBucket = Math.floor(Date.now() / 172800000);
+      const seed = (twoDayBucket * 7 + serviceIndex * 13 + 17) % 8;
+      const slotsLeft = seed + 3;
+      return (
+        <span key={urgencyIndex} className="stack-copy urgency-anim">
+          ⚡ Only <b style={{ color: "#E0233B", fontWeight: "800" }}>{slotsLeft} slots left</b> for {service}
+        </span>
+      );
+    } else {
+      const nameIndex = urgencyIndex % INDIAN_NAMES.length;
+      const name = INDIAN_NAMES[nameIndex];
+      return (
+        <span key={urgencyIndex} className="stack-copy urgency-anim">
+          🎉 <b>{name}</b> enrolled in {service}
+        </span>
+      );
+    }
+  };
 
   // Load content dynamically
   useEffect(() => {
@@ -344,9 +513,9 @@ export default function Home() {
         <div className="wrap hero-grid">
           <div className="hero-copy">
             {/* Eyebrow REMOVED as requested */}
-            <h1>Your Health.<br /><span style={{ whiteSpace: "nowrap" }}>Your <em>Transformation.</em></span></h1>
+            <h1>Your Health.<br /><span className="hero-transformation">Your <em>Transformation.</em></span></h1>
             <p className="sub">
-              From <strong>weight loss</strong> and <strong>diabetes control</strong> to <strong>PCOS</strong>, <strong>thyroid care</strong>, and <strong>post-pregnancy fat loss</strong>, Addy Fitness brings together fitness training, clinical nutrition, and doctor consultation under one roof. Get personalized, doctor-backed health plans designed around real Indian food, sustainable fitness, and lasting results not restrictive diets.
+              <strong>From weight loss and diabetes management to PCOS, thyroid, and post-pregnancy care, Addy Fitness combines fitness training, clinical nutrition, and doctor consultations under one roof. Get personalized, doctor-backed health plans built around real Indian food, sustainable fitness, and lasting results.</strong>
             </p>
             <div className="cta-row">
               <a href="#rx-form" className="btn btn-primary">Book Free Consultation →</a>
@@ -356,15 +525,8 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="avatar-stack">
-              <div className="stack-imgs">
-                {avatarIcons.map((url, i) => (
-                  <div key={url + i} className="img-slot round" style={{ overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "#eee" }}>
-                    <img src={url} alt={`Member ${i + 1}`} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  </div>
-                ))}
-              </div>
-              <span className="stack-copy"><b>1000+ members</b> transformed their health</span>
+            <div className="urgency-container">
+              {getUrgencyMessage()}
             </div>
 
             <div className="stat-row stat-row-3">
@@ -629,7 +791,7 @@ export default function Home() {
       {/* ================= SERVICES ================= */}
       <section className="pad" id="services">
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head center">
             <span className="eyebrow">Programs &amp; Services</span>
             <h2>One platform. Every part of your health.</h2>
             <p>Stop juggling a trainer, a dietitian and a doctor who never talk to each other. Addy Fitness brings all three together, working off the same plan.</p>
