@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Addy Fitness — Your Complete Health Solution | Book Free Consultation",
+  title: "Addy fitness",
   description:
     "Fitness training, clinical nutrition and doctor consultation — all in one place. Indian-food based, doctor-backed, affordable. Book your free consultation today.",
+  icons: {
+    icon: "/favicon.webp",
+  },
 };
 
 export default function RootLayout({

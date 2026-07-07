@@ -967,6 +967,7 @@ footer {
 .carousel-track {
   display: flex;
   gap: 0;
+  width: max-content;
   animation: marquee-scroll 5s linear infinite;
 }
 .carousel-track:hover { animation-play-state: paused; }
@@ -1034,6 +1035,7 @@ footer {
 .food-carousel-track {
   display: flex;
   gap: 0;
+  width: max-content;
   animation: marquee-scroll 6s linear infinite;
 }
 .food-carousel-track:hover { animation-play-state: paused; }
@@ -1100,6 +1102,7 @@ footer {
 .test-carousel-track {
   display: flex;
   gap: 0;
+  width: max-content;
   animation: marquee-scroll 7s linear infinite;
 }
 .test-carousel-track:hover { animation-play-state: paused; }
