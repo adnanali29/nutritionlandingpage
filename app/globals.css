@@ -961,6 +961,7 @@ footer {
   padding: 0 8px;
 }
 .carousel-track-wrap {
+  container-type: inline-size;
   overflow: hidden;
   border-radius: 16px;
 }
@@ -972,7 +973,7 @@ footer {
 }
 .carousel-track:hover { animation-play-state: paused; }
 .carousel-slide {
-  flex: 0 0 calc(100% / 3);
+  flex: 0 0 calc(100cqw / 3);
   padding: 0 8px;
   box-sizing: border-box;
 }
@@ -1030,6 +1031,7 @@ footer {
   margin-top: 20px;
 }
 .food-carousel-track-wrap {
+  container-type: inline-size;
   overflow: hidden;
 }
 .food-carousel-track {
@@ -1040,7 +1042,7 @@ footer {
 }
 .food-carousel-track:hover { animation-play-state: paused; }
 .food-slide {
-  flex: 0 0 calc(100% / 3);
+  flex: 0 0 calc(100cqw / 4);
   padding: 0 10px;
   box-sizing: border-box;
 }
@@ -1097,6 +1099,7 @@ footer {
   margin-top: 20px;
 }
 .test-carousel-track-wrap {
+  container-type: inline-size;
   overflow: hidden;
 }
 .test-carousel-track {
@@ -1107,7 +1110,7 @@ footer {
 }
 .test-carousel-track:hover { animation-play-state: paused; }
 .test-slide {
-  flex: 0 0 calc(100% / 3);
+  flex: 0 0 calc(100cqw / 3);
   padding: 0 10px;
   box-sizing: border-box;
 }
@@ -1173,13 +1176,15 @@ footer {
 
 /* Responsive carousel */
 @media (max-width: 900px) {
-  .carousel-slide, .food-slide, .test-slide { flex: 0 0 50%; }
+  .carousel-slide, .test-slide { flex: 0 0 50cqw; }
+  .food-slide { flex: 0 0 33.333cqw; }
   .carousel-track { animation-duration: 4s; }
   .food-carousel-track { animation-duration: 5s; }
   .test-carousel-track { animation-duration: 5s; }
 }
 @media (max-width: 600px) {
-  .carousel-slide, .food-slide, .test-slide { flex: 0 0 80%; }
+  .carousel-slide, .test-slide { flex: 0 0 80cqw; }
+  .food-slide { flex: 0 0 50cqw; }
   .carousel-track { animation-duration: 3s; }
   .food-carousel-track { animation-duration: 4s; }
   .test-carousel-track { animation-duration: 4s; }
