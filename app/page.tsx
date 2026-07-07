@@ -652,19 +652,9 @@ export default function Home() {
 
           {/* Carousel */}
           <div className="carousel-outer">
-            <button className="carousel-btn carousel-btn-prev" onClick={galleryCarousel.prev} aria-label="Previous">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-
             <div className="carousel-track-wrap">
-              <div
-                className="carousel-track"
-                style={{
-                  transform: `translateX(-${galleryCarousel.index * (100 / (3 * (transformationSlides.length || 1)))}%)`,
-                  transition: galleryCarousel.isTransitioning ? "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)" : "none"
-                }}
-              >
-                {transformationSlides.length > 0 && [...transformationSlides, ...transformationSlides, ...transformationSlides].map((slide, i) => (
+              <div className="carousel-track">
+                {transformationSlides.length > 0 && [...transformationSlides, ...transformationSlides].map((slide, i) => (
                   <div key={i} className="carousel-slide">
                     <div className="img-slot gallery-slide-slot" style={{ overflow: "hidden", position: "relative", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
                       {slide.imageUrl ? (
@@ -696,22 +686,6 @@ export default function Home() {
                 ))}
               </div>
             </div>
-
-            <button className="carousel-btn carousel-btn-next" onClick={galleryCarousel.next} aria-label="Next">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-
-            {/* Dots */}
-            <div className="carousel-dots">
-              {transformationSlides.map((_, i) => (
-                <button
-                  key={i}
-                  className={`carousel-dot${(galleryCarousel.index % (transformationSlides.length || 1)) === i ? " active" : ""}`}
-                  onClick={() => galleryCarousel.select(i)}
-                  aria-label={`Slide ${i + 1}`}
-                />
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -726,19 +700,9 @@ export default function Home() {
           </div>
 
           <div className="food-carousel-outer">
-            <button className="carousel-btn carousel-btn-prev" onClick={foodCarousel.prev} aria-label="Previous">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-
             <div className="food-carousel-track-wrap">
-              <div
-                className="food-carousel-track"
-                style={{
-                  transform: `translateX(-${foodCarousel.index * (100 / (3 * (foodSlides.length || 1)))}%)`,
-                  transition: foodCarousel.isTransitioning ? "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)" : "none"
-                }}
-              >
-                {foodSlides.length > 0 && [...foodSlides, ...foodSlides, ...foodSlides].map((food, i) => (
+              <div className="food-carousel-track">
+                {foodSlides.length > 0 && [...foodSlides, ...foodSlides].map((food, i) => (
                   <div key={i} className="food-slide">
                     <div className="food-card">
                       <div className="food-img-slot" style={{ overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -756,21 +720,6 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            <button className="carousel-btn carousel-btn-next" onClick={foodCarousel.next} aria-label="Next">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-
-            <div className="carousel-dots">
-              {foodSlides.map((_, i) => (
-                <button
-                  key={i}
-                  className={`carousel-dot${(foodCarousel.index % (foodSlides.length || 1)) === i ? " active" : ""}`}
-                  onClick={() => foodCarousel.select(i)}
-                  aria-label={`Food ${i + 1}`}
-                />
-              ))}
             </div>
           </div>
         </div>
@@ -1027,19 +976,9 @@ export default function Home() {
           </div>
           
           <div className="test-carousel-outer">
-            <button className="carousel-btn carousel-btn-prev" onClick={testimonialCarousel.prev} aria-label="Previous">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-
             <div className="test-carousel-track-wrap">
-              <div
-                className="test-carousel-track"
-                style={{
-                  transform: `translateX(-${testimonialCarousel.index * (100 / (3 * (testimonials.length || 1)))}%)`,
-                  transition: testimonialCarousel.isTransitioning ? "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)" : "none"
-                }}
-              >
-                {testimonials.length > 0 && [...testimonials, ...testimonials, ...testimonials].map((t, i) => (
+              <div className="test-carousel-track">
+                {testimonials.length > 0 && [...testimonials, ...testimonials].map((t, i) => (
                   <div key={i} className="test-slide">
                     <div className="test-card">
                       <div className="img-slot ratio-4-3" style={{ overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -1066,21 +1005,6 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            <button className="carousel-btn carousel-btn-next" onClick={testimonialCarousel.next} aria-label="Next">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-
-            <div className="carousel-dots">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  className={`carousel-dot${(testimonialCarousel.index % (testimonials.length || 1)) === i ? " active" : ""}`}
-                  onClick={() => testimonialCarousel.select(i)}
-                  aria-label={`Testimonial ${i + 1}`}
-                />
-              ))}
             </div>
           </div>
         </div>

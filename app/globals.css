@@ -967,9 +967,10 @@ footer {
 .carousel-track {
   display: flex;
   gap: 0;
+  animation: marquee-scroll 30s linear infinite;
 }
+.carousel-track:hover { animation-play-state: paused; }
 .carousel-slide {
-  /* 3 cards visible at once on desktop */
   flex: 0 0 calc(100% / 3);
   padding: 0 8px;
   box-sizing: border-box;
@@ -1033,7 +1034,9 @@ footer {
 .food-carousel-track {
   display: flex;
   gap: 0;
+  animation: marquee-scroll 35s linear infinite;
 }
+.food-carousel-track:hover { animation-play-state: paused; }
 .food-slide {
   flex: 0 0 calc(100% / 3);
   padding: 0 10px;
@@ -1097,7 +1100,9 @@ footer {
 .test-carousel-track {
   display: flex;
   gap: 0;
+  animation: marquee-scroll 40s linear infinite;
 }
+.test-carousel-track:hover { animation-play-state: paused; }
 .test-slide {
   flex: 0 0 calc(100% / 3);
   padding: 0 10px;
@@ -1166,13 +1171,15 @@ footer {
 /* Responsive carousel */
 @media (max-width: 900px) {
   .carousel-slide, .food-slide, .test-slide { flex: 0 0 50%; }
-  .carousel-btn-prev { left: -10px; }
-  .carousel-btn-next { right: -10px; }
+  .carousel-track { animation-duration: 22s; }
+  .food-carousel-track { animation-duration: 25s; }
+  .test-carousel-track { animation-duration: 28s; }
 }
 @media (max-width: 600px) {
-  .carousel-slide, .food-slide, .test-slide { flex: 0 0 100%; }
-  .carousel-btn-prev { left: 4px; }
-  .carousel-btn-next { right: 4px; }
+  .carousel-slide, .food-slide, .test-slide { flex: 0 0 80%; }
+  .carousel-track { animation-duration: 18s; }
+  .food-carousel-track { animation-duration: 20s; }
+  .test-carousel-track { animation-duration: 22s; }
 }
 
 /* ---------- HAMBURGER TOGGLE BUTTON ---------- */
@@ -1595,5 +1602,9 @@ footer {
   }
 }
 
-
+/* ===== INFINITE MARQUEE KEYFRAME ===== */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
