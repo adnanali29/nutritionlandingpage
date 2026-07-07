@@ -5,120 +5,12 @@
   },
   "content": {
     "heroBgs": [
-      "https://i.ibb.co/yBGZQfRt/1.webp",
-      "https://i.ibb.co/gMwb2q60/2.webp",
-      "https://i.ibb.co/9m9KFdRv/3.webp",
-      "https://i.ibb.co/hxXydSjh/4.webp",
-      "https://i.ibb.co/67r1JP12/5.webp",
-      "https://i.ibb.co/wh4ky3rJ/6.webp"
+      "test"
     ],
-    "avatarIcons": [
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face"
-    ],
-    "transformations": [
-      {
-        "id": "1",
-        "label": "Before / After — Member 1",
-        "name": "Aarav Mehta",
-        "disease": "PCOS & Gut Health",
-        "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
-      },
-      {
-        "id": "2",
-        "label": "Before / After — Member 2",
-        "name": "Meera Nair",
-        "disease": "Thyroid (Hypo)",
-        "imageUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400&h=300&fit=crop"
-      },
-      {
-        "id": "3",
-        "label": "Before / After — Member 3",
-        "name": "Kabir Sharma",
-        "disease": "Diabetes / Weight",
-        "imageUrl": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=400&h=300&fit=crop"
-      },
-      {
-        "id": "4",
-        "label": "Before / After — Member 4",
-        "name": "Neha Gupta",
-        "disease": "Hormonal Imbalance",
-        "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"
-      },
-      {
-        "id": "5",
-        "label": "Before / After — Member 5",
-        "name": "Rohan Das",
-        "disease": "Fatty Liver",
-        "imageUrl": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=400&h=300&fit=crop"
-      }
-    ],
-    "foodPlan": [
-      {
-        "id": "1",
-        "label": "Dal Tadka",
-        "tag": "High Protein",
-        "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"
-      },
-      {
-        "id": "2",
-        "label": "Roti Sabzi",
-        "tag": "Balanced",
-        "imageUrl": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop"
-      },
-      {
-        "id": "3",
-        "label": "Brown Rice Bowl",
-        "tag": "Low GI",
-        "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop"
-      },
-      {
-        "id": "4",
-        "label": "Sprout Salad",
-        "tag": "Detox",
-        "imageUrl": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=300&fit=crop"
-      },
-      {
-        "id": "5",
-        "label": "Khichdi",
-        "tag": "Gut Friendly",
-        "imageUrl": "https://images.unsplash.com/photo-1601050690597-df056fb49785?w=400&h=300&fit=crop"
-      },
-      {
-        "id": "6",
-        "label": "Egg Bhurji",
-        "tag": "Muscle Gain",
-        "imageUrl": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=400&h=300&fit=crop"
-      }
-    ],
-    "successStories": [
-      {
-        "id": "1",
-        "name": "Ramesh Sharma, 62",
-        "program": "Senior Nutrition Program",
-        "result": "↓ Lost 12kg & reduced joint pain",
-        "quote": "I was hesitant about an online program at my age, but the soft-diet plan and low-impact workouts helped me lose weight safely, without straining my joints.",
-        "imageUrl": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
-      },
-      {
-        "id": "2",
-        "name": "Priya Patel, 28",
-        "program": "HIIT & Weight Management",
-        "result": "↓ Down 15kg, improved energy",
-        "quote": "The one-on-one attention made all the difference. Pairing high-energy workouts with precise macro targets made losing weight feel almost effortless.",
-        "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face"
-      },
-      {
-        "id": "3",
-        "name": "Ananya Sen, 34",
-        "program": "Clinical Nutrition Program",
-        "result": "✓ Managed PCOS & gut health",
-        "quote": "Severe bloating and PCOS symptoms had taken over my life. A gut-friendly nutrition schedule from the clinical team turned things around within weeks.",
-        "imageUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face"
-      }
-    ]
+    "avatarIcons": [],
+    "transformations": [],
+    "foodPlan": [],
+    "successStories": []
   },
   "consultations": [
     {

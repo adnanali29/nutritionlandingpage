@@ -1,44 +1,33 @@
 import { NextResponse } from "next/server";
-import fs from "fs/promises";
-import path from "path";
-
-const DB_PATH = path.join(process.cwd(), "data", "db.json");
-
-async function readDb() {
-  try {
-    const data = await fs.readFile(DB_PATH, "utf-8");
-    return JSON.parse(data);
-  } catch (error) {
-    return {
-      content: {
-        heroBgs: [],
-        avatarIcons: [],
-        transformations: [],
-        foodPlan: [],
-        successStories: []
-      },
-      consultations: []
-    };
-  }
-}
-
-async function writeDb(data: any) {
-  await fs.mkdir(path.dirname(DB_PATH), { recursive: true });
-  await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2), "utf-8");
-}
+import sql from "@/lib/db";
 
 export async function GET() {
-  const db = await readDb();
-  return NextResponse.json(db.content || {});
+  try {
+    const rows = await sql`SELECT key, value FROM content`;
+    const content: Record<string, any> = {};
+    for (const row of rows) {
+      content[row.key] = row.value;
+    }
+    return NextResponse.json(content);
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const db = await readDb();
-    db.content = body;
-    await writeDb(db);
-    return NextResponse.json({ success: true, content: db.content });
+
+    // Upsert each content key
+    for (const [key, value] of Object.entries(body)) {
+      await sql`
+        INSERT INTO content (key, value, updated_at)
+        VALUES (${key}, ${JSON.stringify(value)}::jsonb, NOW())
+        ON CONFLICT (key) DO UPDATE SET value = ${JSON.stringify(value)}::jsonb, updated_at = NOW()
+      `;
+    }
+
+    return NextResponse.json({ success: true, content: body });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
