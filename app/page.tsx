@@ -124,9 +124,139 @@ const FOOD_SLIDES = [
 
 /* ─── Testimonials data ─── */
 const TESTIMONIALS = [
-  { name: "Ramesh Sharma, 62", program: "Senior Nutrition Program", result: "↓ Lost 12kg & reduced joint pain", quote: "I was hesitant about an online program at my age, but the soft-diet plan and low-impact workouts helped me lose weight safely, without straining my joints." },
-  { name: "Priya Patel, 28", program: "HIIT & Weight Management", result: "↓ Down 15kg, improved energy", quote: "The one-on-one attention made all the difference. Pairing high-energy workouts with precise macro targets made losing weight feel almost effortless." },
-  { name: "Ananya Sen, 34", program: "Clinical Nutrition Program", result: "✓ Managed PCOS & gut health", quote: "Severe bloating and PCOS symptoms had taken over my life. A gut-friendly nutrition schedule from the clinical team turned things around within weeks." }
+  {
+    name: "Ankita S",
+    program: "Depression and Anxiety",
+    result: "Recovered from Depression",
+    quote: "I was struggling with depression and anxiety for a long time, and it started affecting every part of my life. With the right guidance, personalized nutrition, and regular support from the team, I slowly regained my confidence and peace of mind. Today, I feel happier, calmer, and more in control of my life. I'm truly grateful for this journey",
+    imageUrl: "https://i.ibb.co/spzhZSBw/Ankita.jpg"
+  },
+  {
+    name: "Suparna J",
+    program: "PCOS and Weight Loss",
+    result: "Lost 8 Kg and Recovered PCOS",
+    quote: "I was diagnosed with PCOS and struggled with irregular periods, weight gain, and low confidence. With a personalized nutrition plan, regular guidance, and consistent lifestyle changes, I started seeing positive results within a few months. Today, my health has improved significantly, and I feel more energetic and confident than ever. Thank you for helping me get back on track",
+    imageUrl: "https://i.ibb.co/LDqpKRwm/Suparna.png"
+  },
+  {
+    name: "Dr Swastik",
+    program: "Strength and Conditioning",
+    result: "Improved Endurance and Stamina",
+    quote: "I wanted to improve my strength, endurance, and overall fitness. The personalized strength and conditioning program helped me become stronger, more athletic, and far more confident in my performance. I now feel fitter, recover faster, and enjoy every workout. The guidance and support throughout the journey made all the difference",
+    imageUrl: "https://i.ibb.co/23rLvxG1/Dr-swastik.jpg"
+  },
+  {
+    name: "Neha P",
+    program: "Weight loss",
+    result: "Lost 14 kg",
+    quote: "After years of struggling with my weight, I finally found a program that was practical and sustainable. The personalized nutrition plan, guided workouts, and constant motivation helped me lose 14 kg while feeling healthier and more confident. I have more energy, better self-esteem, and a lifestyle I can actually maintain. I'm so grateful for this transformation!",
+    imageUrl: "https://i.ibb.co/Q7r6qg0b/Neha.jpg"
+  },
+  {
+    name: "Masooma M",
+    program: "PCOS and Weight Loss",
+    result: "Recovered PCOS & Lost 30 Kg",
+    quote: "For years, I believed my PCOS was the reason I could never lose weight. This program completely changed my perspective. Instead of crash diets, I learned how to eat right, train smart, and stay consistent. I've lost 16 kg, my cycles have become more regular, and I finally feel confident in my own skin",
+    imageUrl: "https://i.ibb.co/GvR5jQK7/Massoma-2.png"
+  },
+  {
+    name: "Rajan",
+    program: "Strength and Conditioning",
+    result: "Gained 5 kg and Strength",
+    quote: "had always struggled to gain healthy weight and build muscle despite working out regularly. The customized nutrition plan and strength training program helped me gain 5 kg of lean body weight while becoming noticeably stronger and more energetic. I finally feel confident in my physique, and my performance in the gym has improved tremendously",
+    imageUrl: "https://i.ibb.co/7dggHNYD/Rajan.jpg"
+  },
+  {
+    name: "Amit Patel, 42",
+    program: "Diabetes Management",
+    result: "✓ Reversed Type 2 Diabetes & stopped meds",
+    quote: "My HbA1c had touched 8.5 and doctors said I'd need insulin soon. Since joining, the custom meal plans and mild exercise sessions worked like a charm. My sugar level is completely normal now and doctor has stopped my morning tablet. Pure magic!",
+    imageUrl: ""
+  },
+  {
+    name: "Sunita Rao, 38",
+    program: "Thyroid Management",
+    result: "↓ Lost 9kg & balanced TSH levels",
+    quote: "Dealing with hypothyroid made me feel tired all day and losing weight was impossible. The clinical team understood this and gave a customized diet rich in iodine and selenium. My energy is back, skin is glowing, and TSH is back in normal range.",
+    imageUrl: ""
+  },
+  {
+    name: "Rahul Verma, 31",
+    program: "Weight Loss Program",
+    result: "↓ Shed 18kg in 6 months",
+    quote: "I tried going to the gym and doing keto on my own, but always failed. The structured weekly guidance here and simple home-cooked Indian meals made the weight loss sustainable. Best part? No fancy ingredients, just normal ghar ka khana.",
+    imageUrl: ""
+  },
+  {
+    name: "Meera Nair, 29",
+    program: "Post-Pregnancy Care",
+    result: "✓ Lost 11kg & rebuilt core strength",
+    quote: "Post my delivery, I was struggling with postpartum weight and severe back pain. The gentle postnatal yoga and nutrition schedule was perfect. It never affected my lactation and I gained my pre-pregnancy fitness back safely.",
+    imageUrl: ""
+  },
+  {
+    name: "Rajesh Kumar, 45",
+    program: "Gut Health Reset",
+    result: "✓ Cured chronic acidity & bloating",
+    quote: "For years, my day started with an antacid capsule. This program taught me how to eat to fix my gut microbiome. Within a month, my acidity vanished. I can now sleep peacefully without any burning sensation or gas.",
+    imageUrl: ""
+  },
+  {
+    name: "Kavya Iyer, 26",
+    program: "PCOS Care Plan",
+    result: "✓ Regular cycles & cleared acne",
+    quote: "PCOS had messed up my period cycles completely, and my weight was just going up. The target workouts and seed-cycling diet plan they suggested worked wonders. My periods are regular now without any hormonal pills!",
+    imageUrl: ""
+  },
+  {
+    name: "Sandeep Joshi, 52",
+    program: "Senior Nutrition Program",
+    result: "↓ Dropped 10kg & reduced uric acid",
+    quote: "At my age, joint stiffness and high uric acid made workouts very difficult. The team designed a low-purine diet and low-impact mobility exercises. Today I can walk 5 kilometers easily without any heel pain.",
+    imageUrl: ""
+  },
+  {
+    name: "Tanvi Shah, 33",
+    program: "Clinical Nutrition",
+    result: "✓ Managed fatty liver & cholesterol",
+    quote: "I was diagnosed with Grade 2 Fatty Liver during a routine checkup. The clinical diet plan focused on healthy fats and portion control. In my recent ultrasound, my liver is completely normal, and lipid profile is clean.",
+    imageUrl: ""
+  },
+  {
+    name: "Arjun Mehta, 27",
+    program: "Personal Fitness Training",
+    result: "✓ Gained 6kg lean muscle & stamina",
+    quote: "I was very skinny and felt self-conscious. The muscle gain diet combined with structured weight training helped me bulk up cleanly. My strength has doubled and I feel extremely confident now.",
+    imageUrl: ""
+  },
+  {
+    name: "Neha Deshmukh, 35",
+    program: "PCOS and Weight Loss",
+    result: "↓ Lost 13kg & reversed insulin resistance",
+    quote: "Losing weight with insulin resistance was a nightmare. This program focused on low glycemic index foods and home workouts. Slowly, my waist size reduced and my fasting insulin levels came down to normal.",
+    imageUrl: ""
+  },
+  {
+    name: "Ramesh Sharma, 62",
+    program: "Senior Nutrition Program",
+    result: "↓ Lost 12kg & reduced joint pain",
+    quote: "I was hesitant about an online program at my age, but the soft-diet plan and low-impact workouts helped me lose weight safely, without straining my joints.",
+    imageUrl: ""
+  },
+  {
+    name: "Priya Patel, 28",
+    program: "HIIT & Weight Management",
+    result: "↓ Down 15kg, improved energy",
+    quote: "The one-on-one attention made all the difference. Pairing high-energy workouts with precise macro targets made losing weight feel almost effortless.",
+    imageUrl: ""
+  },
+  {
+    name: "Ananya Sen, 34",
+    program: "Clinical Nutrition Program",
+    result: "✓ Managed PCOS & gut health",
+    quote: "Severe bloating and PCOS symptoms had taken over my life. A gut-friendly nutrition schedule from the clinical team turned things around within weeks.",
+    imageUrl: ""
+  }
 ];
 
 const DISEASE_ICONS = [
@@ -981,16 +1111,11 @@ export default function Home() {
                 {testimonials.length > 0 && [...testimonials, ...testimonials].map((t, i) => (
                   <div key={i} className="test-slide">
                     <div className="test-card">
-                      <div className="img-slot ratio-4-3" style={{ overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        {t.imageUrl ? (
+                      {t.imageUrl && (
+                        <div className="img-slot ratio-4-3" style={{ overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
                           <img src={t.imageUrl} alt={t.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                        ) : (
-                          <>
-                            <span className="ic"><IconPhoto /></span>
-                            <span>Client Photo</span>
-                          </>
-                        )}
-                      </div>
+                        </div>
+                      )}
                       <div className="test-body">
                         <p className="test-quote">{t.quote}</p>
                         <div className="test-person">

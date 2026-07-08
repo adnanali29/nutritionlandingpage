@@ -1112,7 +1112,7 @@ footer {
   display: flex;
   gap: 0;
   width: max-content;
-  animation: marquee-scroll 100s linear infinite;
+  animation: marquee-scroll 25s linear infinite;
 }
 .test-carousel-track:hover { animation-play-state: paused; }
 .test-slide {
