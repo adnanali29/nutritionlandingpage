@@ -1111,11 +1111,16 @@ export default function Home() {
                 {testimonials.length > 0 && [...testimonials, ...testimonials].map((t, i) => (
                   <div key={i} className="test-slide">
                     <div className="test-card">
-                      {t.imageUrl && (
-                        <div className="img-slot ratio-4-3" style={{ overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <div className="img-slot ratio-4-3" style={{ overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        {t.imageUrl ? (
                           <img src={t.imageUrl} alt={t.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                        </div>
-                      )}
+                        ) : (
+                          <>
+                            <span className="ic"><IconPhoto /></span>
+                            <span>Client Photo</span>
+                          </>
+                        )}
+                      </div>
                       <div className="test-body">
                         <p className="test-quote">{t.quote}</p>
                         <div className="test-person">
