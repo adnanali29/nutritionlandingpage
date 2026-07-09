@@ -23,11 +23,22 @@ export async function GET() {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const id = Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+
+    const countResult = await sql`SELECT COUNT(*) as count FROM consultations`;
+    const count = parseInt(countResult[0]?.count || "0");
+    let bookingNumber = count;
+    let id = `AFNC${String(bookingNumber).padStart(3, "0")}`;
+
+    // Collision check to prevent duplication
+    let collisionCheck = await sql`SELECT id FROM consultations WHERE id = ${id}`;
+    while (collisionCheck.length > 0) {
+      bookingNumber++;
+      id = `AFNC${String(bookingNumber).padStart(3, "0")}`;
+      collisionCheck = await sql`SELECT id FROM consultations WHERE id = ${id}`;
+    }
 
     await sql`
       INSERT INTO consultations (

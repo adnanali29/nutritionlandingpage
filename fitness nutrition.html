@@ -1750,7 +1750,7 @@ src="https://www.facebook.com/tr?id=4662185584012888&ev=PageView&noscript=1"
     const phone = document.getElementById('fphone').value;
     const time = document.getElementById('ftime').value || 'Any time';
     const city = document.getElementById('fcity').value || 'Not specified';
-    const bookingId = 'addy-' + Math.random().toString(36).substr(2, 9);
+    const bookingId = 'AFNC' + String(Math.floor(Math.random() * 900) + 100);
     const thankYouUrl = '/thank-you/' + bookingId;
 
     // Update URL to /thank-you/[id]

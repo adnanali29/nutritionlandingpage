@@ -544,6 +544,7 @@ export default function AdminPanel() {
   const filteredConsultations = consultations.filter((req) => {
     const term = searchQuery.toLowerCase();
     return (
+      req.id?.toLowerCase().includes(term) ||
       req.name?.toLowerCase().includes(term) ||
       req.phone?.toLowerCase().includes(term) ||
       req.concern?.toLowerCase().includes(term) ||
@@ -1145,6 +1146,7 @@ export default function AdminPanel() {
                   <table className="admin-table">
                     <thead>
                       <tr>
+                        <th>Booking ID</th>
                         <th>Client Name</th>
                         <th>Phone</th>
                         <th>Email</th>
@@ -1160,6 +1162,7 @@ export default function AdminPanel() {
                           onClick={() => setSelectedConsultation(item)}
                           className={item.status === "contacted" ? "contacted-row" : ""}
                         >
+                          <td><code style={{ fontFamily: "Space Mono, monospace", fontWeight: "700", color: "var(--admin-primary)" }}>{item.id}</code></td>
                           <td><strong>{item.name}</strong></td>
                           <td>{item.phone}</td>
                           <td>{item.email}</td>
