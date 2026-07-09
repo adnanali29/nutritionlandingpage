@@ -4,7 +4,21 @@ import sql from "@/lib/db";
 export async function GET() {
   try {
     const rows = await sql`SELECT * FROM consultations ORDER BY created_at DESC`;
-    return NextResponse.json(rows);
+    const mappedRows = rows.map((row: any) => ({
+      id: row.id,
+      name: row.name,
+      phone: row.phone,
+      age: row.age,
+      gender: row.gender,
+      concern: row.concern,
+      height: row.height,
+      preferredDate: row.preferred_date,
+      preferredTime: row.preferred_time,
+      status: row.status,
+      notes: row.notes,
+      createdAt: row.created_at,
+    }));
+    return NextResponse.json(mappedRows);
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
@@ -16,7 +30,9 @@ export async function POST(request: Request) {
     const id = Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
 
     await sql`
-      INSERT INTO consultations (id, name, phone, age, gender, concern, status, created_at)
+      INSERT INTO consultations (
+        id, name, phone, age, gender, concern, height, preferred_date, preferred_time, status, created_at
+      )
       VALUES (
         ${id},
         ${body.name || ''},
@@ -24,6 +40,9 @@ export async function POST(request: Request) {
         ${body.age || ''},
         ${body.gender || ''},
         ${body.concern || ''},
+        ${body.height || ''},
+        ${body.preferredDate || ''},
+        ${body.preferredTime || ''},
         'pending',
         NOW()
       )

@@ -23,11 +23,23 @@ export async function initDb() {
       age TEXT,
       gender TEXT,
       concern TEXT,
+      height TEXT,
+      preferred_date TEXT,
+      preferred_time TEXT,
       status TEXT DEFAULT 'pending',
       notes TEXT DEFAULT '',
       created_at TIMESTAMP DEFAULT NOW()
     )
   `;
+
+  // Migration to add fields if table already exists
+  try {
+    await sql`ALTER TABLE consultations ADD COLUMN IF NOT EXISTS preferred_date TEXT;`;
+    await sql`ALTER TABLE consultations ADD COLUMN IF NOT EXISTS preferred_time TEXT;`;
+    await sql`ALTER TABLE consultations ADD COLUMN IF NOT EXISTS height TEXT;`;
+  } catch (err) {
+    console.error("Migration warning for consultations table:", err);
+  }
 
   await sql`
     CREATE TABLE IF NOT EXISTS settings (
