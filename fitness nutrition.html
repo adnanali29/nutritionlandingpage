@@ -1747,8 +1747,15 @@ src="https://www.facebook.com/tr?id=4662185584012888&ev=PageView&noscript=1"
     // Example: fetch('https://your-endpoint.com/leads', { method:'POST', body: new FormData(leadForm) });
 
     // Fire conversion events for ad platforms here, e.g.:
-    // if (typeof fbq === 'function') fbq('track', 'Lead');
-    // if (typeof gtag === 'function') gtag('event', 'generate_lead');
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead');
+    }
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        event_category: 'form',
+        event_label: 'Consultation Booking'
+      });
+    }
 
     formSuccess.style.display = 'block';
     leadForm.querySelector('button[type="submit"]').textContent = 'Request Received ✓';
