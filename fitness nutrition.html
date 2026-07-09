@@ -1750,19 +1750,22 @@ src="https://www.facebook.com/tr?id=4662185584012888&ev=PageView&noscript=1"
     const phone = document.getElementById('fphone').value;
     const time = document.getElementById('ftime').value || 'Any time';
     const city = document.getElementById('fcity').value || 'Not specified';
+    const bookingId = 'addy-' + Math.random().toString(36).substr(2, 9);
+    const thankYouUrl = '/thank-you/' + bookingId;
 
-    // Update URL to /thank-you
-    window.history.pushState({}, '', '/thank-you');
+    // Update URL to /thank-you/[id]
+    window.history.pushState({}, '', thankYouUrl);
 
     // Fire Google Analytics virtual pageview and events
     if (typeof gtag === 'function') {
       gtag('config', 'G-2XETLXZZC9', {
-        'page_path': '/thank-you',
+        'page_path': thankYouUrl,
         'page_title': 'Thank You - Addy Fitness'
       });
       gtag('event', 'generate_lead', {
         'event_category': 'form',
-        'event_label': 'Consultation Booking'
+        'event_label': 'Consultation Booking',
+        'value': bookingId
       });
     }
 
@@ -1792,6 +1795,7 @@ src="https://www.facebook.com/tr?id=4662185584012888&ev=PageView&noscript=1"
         </p>
         <div style="background-color: var(--cream); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 24px; text-align: left;">
           <div style="font-size: 12px; color: var(--muted-on-light); margin-bottom: 8px; font-family: 'Space Mono', monospace; text-transform: uppercase;">Booking Summary:</div>
+          <div style="font-size: 14px; color: var(--ink); margin-bottom: 4px;">🆔 <strong>Booking ID:</strong> ${bookingId}</div>
           <div style="font-size: 14px; color: var(--ink); margin-bottom: 4px;">📞 <strong>Phone:</strong> ${phone}</div>
           <div style="font-size: 14px; color: var(--ink); margin-bottom: 4px;">📍 <strong>City:</strong> ${city}</div>
           <div style="font-size: 14px; color: var(--ink);">⏰ <strong>Call Time:</strong> ${time}</div>

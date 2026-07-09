@@ -569,21 +569,25 @@ export default function Home() {
       });
 
       if (response.ok) {
-        setSubmittedData(data);
+        const resData = await response.json();
+        const bookingId = resData.consultation?.id || Date.now().toString(36);
+        setSubmittedData({ ...data, id: bookingId });
         setSubmitted(true);
         if (typeof window !== "undefined") {
-          window.history.pushState({}, "", "/thank-you");
+          const thankYouUrl = `/thank-you/${bookingId}`;
+          window.history.pushState({}, "", thankYouUrl);
           if ((window as any).fbq) {
             (window as any).fbq("track", "Lead");
           }
           if ((window as any).gtag) {
             (window as any).gtag("config", "G-2XETLXZZC9", {
-              page_path: "/thank-you",
+              page_path: thankYouUrl,
               page_title: "Thank You - Addy Fitness"
             });
             (window as any).gtag("event", "generate_lead", {
               event_category: "form",
               event_label: "Consultation Booking",
+              value: bookingId
             });
           }
         }
@@ -812,6 +816,7 @@ export default function Home() {
                   textAlign: "left"
                 }}>
                   <div style={{ fontSize: "12px", color: "var(--muted-on-light)", marginBottom: "8px", fontFamily: "'Space Mono', monospace", textTransform: "uppercase" }}>Booking Summary:</div>
+                  <div style={{ fontSize: "14px", color: "var(--ink)", marginBottom: "4px" }}>🆔 <strong>Booking ID:</strong> {submittedData?.id}</div>
                   <div style={{ fontSize: "14px", color: "var(--ink)", marginBottom: "4px" }}>📞 <strong>Phone:</strong> {submittedData?.phone}</div>
                   <div style={{ fontSize: "14px", color: "var(--ink)", marginBottom: "4px" }}>📅 <strong>Date:</strong> {submittedData?.preferredDate}</div>
                   <div style={{ fontSize: "14px", color: "var(--ink)" }}>⏰ <strong>Time Slot:</strong> {submittedData?.preferredTime}</div>
