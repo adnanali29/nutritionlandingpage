@@ -80,6 +80,157 @@ const IconPhoto = () => (
 
 
 
+interface Specialty {
+  id: string;
+  title: string;
+  icon: string;
+  imageUrl?: string;
+}
+
+const DEFAULT_SPECIALTIES: Specialty[] = [
+  { id: "spec-1", title: "Thyroid Management", icon: "thyroid", imageUrl: "https://i.ibb.co/fGPq1my0/thyroid.png" },
+  { id: "spec-2", title: "Diabetes Management", icon: "diabetes", imageUrl: "https://i.ibb.co/q3h7G8XM/Diabetes.png" },
+  { id: "spec-3", title: "PCOS/PCOD Management", icon: "pcos", imageUrl: "https://i.ibb.co/8n3K8gz8/PCOS.png" },
+  { id: "spec-4", title: "Weight Management", icon: "weight" },
+  { id: "spec-5", title: "Hyper/Hypo Tension Management", icon: "hypertension", imageUrl: "https://i.ibb.co/YFSD4BZC/Hyper-HYPO.png" },
+  { id: "spec-6", title: "Joint Pain Management", icon: "joint", imageUrl: "https://i.ibb.co/0RbbKC4W/Bone.png" },
+  { id: "spec-7", title: "Liver Management", icon: "liver" },
+  { id: "spec-8", title: "Healthy Heart Management", icon: "heart", imageUrl: "https://i.ibb.co/Qvjg74h0/Heart.png" },
+  { id: "spec-9", title: "Cholesterol Management", icon: "cholesterol", imageUrl: "https://i.ibb.co/TqMPjkmn/Cholestrol.png" },
+  { id: "spec-10", title: "IBS and Constipation Management", icon: "ibs", imageUrl: "https://i.ibb.co/5xBCG0nW/IBS.png" },
+  { id: "spec-11", title: "Pregnancy Guidance", icon: "pregnancy", imageUrl: "https://i.ibb.co/HDLd74dv/Pregnancy.png" },
+  { id: "spec-12", title: "Post Pregnancy Guidance", icon: "post_pregnancy", imageUrl: "https://i.ibb.co/7mS2ChH/Post-prenancy.png" },
+  { id: "spec-13", title: "Child Nutrition Guidance", icon: "child_nutrition", imageUrl: "https://i.ibb.co/mCWKyN6r/Child.png" }
+];
+
+const formatTitle = (title: string) => {
+  if (title.endsWith(" Management")) {
+    const main = title.substring(0, title.length - " Management".length);
+    return <>{main}<br />Management</>;
+  }
+  if (title.endsWith(" Guidance")) {
+    const main = title.substring(0, title.length - " Guidance".length);
+    return <>{main}<br />Guidance</>;
+  }
+  return title;
+};
+
+const SpecialtyIcon = ({ icon }: { icon: string }) => {
+  switch (icon) {
+    case "weight":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M5 3h14c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2z" />
+          <path d="M12 7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+          <path d="M12 17h.01M9 17h.01M15 17h.01" />
+          <path d="M12 10l2 2" />
+        </svg>
+      );
+    case "thyroid":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 7c-1.5-2.5-4.5-3-6.5-1s-1.5 5 1.5 7.5c2 1.7 4 2.5 5 3.5 1-1 3-1.8 5-3.5 3-2.5 3.5-5.5 1.5-7.5s-5-1.5-6.5 1z" />
+          <path d="M12 5v14" />
+        </svg>
+      );
+    case "pcos":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="8" r="5" />
+          <path d="M12 13v8" />
+          <path d="M9 17h6" />
+          <path d="M12 8m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+        </svg>
+      );
+    case "diabetes":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z" />
+          <path d="M9 13h6" />
+          <path d="M12 10v6" />
+        </svg>
+      );
+    case "hypertension":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          <path d="M8 10h8M12 7v6" />
+        </svg>
+      );
+    case "joint":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M8 3h8v3H8V3zM8 18h8v3H8v-3z" />
+          <path d="M12 6v12M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+        </svg>
+      );
+    case "liver":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 3C7 3 3 6.5 3 11c0 3.5 2.5 6 5.5 7.5S14 21 16.5 21c3.5 0 4.5-2 4.5-5.5 0-4.5-4-9.5-9-9.5Z" />
+          <circle cx="12" cy="13" r="2.5" />
+          <path d="M16 16c-1.5-1.5-3-1.5-4.5 0" />
+        </svg>
+      );
+    case "heart":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          <path d="M6 9.5h2.5l1.5-3.5 2 7 1.5-5 1 1.5H18" />
+        </svg>
+      );
+    case "cholesterol":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="6" />
+          <circle cx="12" cy="12" r="2" />
+        </svg>
+      );
+    case "ibs":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 8c2.5-3 6-3 8 0s5.5 3 8 0" />
+          <path d="M4 12c2.5 3 6 3 8 0s5.5-3 8 0" />
+          <path d="M4 16c2.5-3 6-3 8 0s5.5 3 8 0" />
+        </svg>
+      );
+    case "pregnancy":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 20V10" />
+          <path d="M12 10a5 5 0 0 1 5-5h2v2a5 5 0 0 1-5 5h-2z" />
+          <path d="M12 14a5 5 0 0 0-5-5H5v2a5 5 0 0 0 5 5h2z" />
+        </svg>
+      );
+    case "post_pregnancy":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+          <path d="M12 2a15 15 0 0 0-3 7.5 15 15 0 0 0 3 7.5 15 15 0 0 0 3-7.5A15 15 0 0 0 12 2Z" />
+          <path d="M4.5 12a15 15 0 0 0 7.5 3 15 15 0 0 0 7.5-3 15 15 0 0 0-7.5-3 15 15 0 0 0-7.5 3Z" />
+        </svg>
+      );
+    case "child_nutrition":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M8 13.5s1.5 2.5 4 2.5 4-2.5 4-2.5" />
+          <circle cx="9" cy="9.5" r="1.2" fill="currentColor" />
+          <circle cx="15" cy="9.5" r="1.2" fill="currentColor" />
+          <path d="M12 2v2" />
+        </svg>
+      );
+    default:
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 8v8M8 12h8" />
+        </svg>
+      );
+  }
+};
+
 const CONCERNS = [
   "None",
   "Weight Loss",
@@ -461,6 +612,26 @@ export default function Home() {
   const [transformationSlides, setTransformationSlides] = useState<TransformationSlide[]>(TRANSFORMATION_SLIDES);
   const [foodSlides, setFoodSlides] = useState<FoodSlide[]>(FOOD_SLIDES);
   const [testimonials, setTestimonials] = useState<Testimonial[]>(TESTIMONIALS);
+  const [specialties, setSpecialties] = useState<Specialty[]>(DEFAULT_SPECIALTIES);
+  const [selectedConcern, setSelectedConcern] = useState("");
+
+  const dragMoved = useRef(false);
+  const specialtiesTrackRef = useRef<HTMLDivElement | null>(null);
+
+  const handleSpecialtyCTA = (title: string) => {
+    if (dragMoved.current) return;
+    setSelectedConcern(title);
+    const formElement = document.getElementById("rx-form");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        const selectElement = document.getElementById("fconcern") as HTMLSelectElement | null;
+        if (selectElement) {
+          selectElement.focus();
+        }
+      }, 800);
+    }
+  };
 
   const galleryCarousel = useInfiniteCarousel(transformationSlides.length, 5500);
   const foodCarousel = useInfiniteCarousel(foodSlides.length, 3000);
@@ -529,6 +700,7 @@ export default function Home() {
           if (data.transformations && data.transformations.length > 0) setTransformationSlides(data.transformations);
           if (data.foodPlan && data.foodPlan.length > 0) setFoodSlides(data.foodPlan);
           if (data.successStories && data.successStories.length > 0) setTestimonials(data.successStories);
+          if (data.specialties && data.specialties.length > 0) setSpecialties(data.specialties);
         }
       } catch (err) {
         console.error("Failed to load content:", err);
@@ -536,6 +708,176 @@ export default function Home() {
     }
     loadContent();
   }, []);
+
+  // Draggable and Swipeable Specialties Carousel with Autoplay
+  useEffect(() => {
+    const el = specialtiesTrackRef.current;
+    if (!el) return;
+
+    let isDraggingActive = false;
+    let startXVal = 0;
+    let startScrollLeftVal = 0;
+    let autoplayTimerVal: number | null = null;
+    let isHoveredVal = false;
+
+    const startAutoplay = () => {
+      if (autoplayTimerVal) return;
+      let lastTime = performance.now();
+      const step = (time: number) => {
+        if (!el || isDraggingActive || isHoveredVal) {
+          autoplayTimerVal = null;
+          return;
+        }
+        const delta = time - lastTime;
+        lastTime = time;
+        const speed = 0.04;
+        el.scrollLeft += speed * delta;
+
+        // Loop wrap
+        const halfWidth = el.scrollWidth / 2;
+        if (el.scrollLeft >= halfWidth) {
+          el.scrollLeft = el.scrollLeft - halfWidth;
+        }
+        autoplayTimerVal = requestAnimationFrame(step);
+      };
+      autoplayTimerVal = requestAnimationFrame(step);
+    };
+
+    const stopAutoplay = () => {
+      if (autoplayTimerVal) {
+        cancelAnimationFrame(autoplayTimerVal);
+        autoplayTimerVal = null;
+      }
+    };
+
+    // Mouse handlers
+    const handleMouseDown = (e: MouseEvent) => {
+      isDraggingActive = true;
+      dragMoved.current = false;
+      startXVal = e.pageX - el.offsetLeft;
+      startScrollLeftVal = el.scrollLeft;
+      el.style.cursor = "grabbing";
+      stopAutoplay();
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!isDraggingActive) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - startXVal) * 1.5;
+      if (Math.abs(x - startXVal) > 5) {
+        dragMoved.current = true;
+      }
+      el.scrollLeft = startScrollLeftVal - walk;
+
+      // Wrap during drag
+      const halfWidth = el.scrollWidth / 2;
+      if (el.scrollLeft >= halfWidth) {
+        el.scrollLeft -= halfWidth;
+        startXVal = x;
+        startScrollLeftVal = el.scrollLeft;
+      } else if (el.scrollLeft <= 0) {
+        el.scrollLeft += halfWidth;
+        startXVal = x;
+        startScrollLeftVal = el.scrollLeft;
+      }
+    };
+
+    const handleMouseUpOrLeave = () => {
+      if (isDraggingActive) {
+        isDraggingActive = false;
+        el.style.cursor = "grab";
+        setTimeout(() => {
+          dragMoved.current = false;
+        }, 80);
+        setTimeout(startAutoplay, 1500);
+      }
+    };
+
+    // Touch handlers
+    const handleTouchStart = (e: TouchEvent) => {
+      isDraggingActive = true;
+      dragMoved.current = false;
+      startXVal = e.touches[0].pageX - el.offsetLeft;
+      startScrollLeftVal = el.scrollLeft;
+      stopAutoplay();
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isDraggingActive) return;
+      const x = e.touches[0].pageX - el.offsetLeft;
+      const walk = (x - startXVal) * 1.2;
+      if (Math.abs(x - startXVal) > 5) {
+        dragMoved.current = true;
+      }
+      el.scrollLeft = startScrollLeftVal - walk;
+
+      // Wrap during touch swipe
+      const halfWidth = el.scrollWidth / 2;
+      if (el.scrollLeft >= halfWidth) {
+        el.scrollLeft -= halfWidth;
+        startXVal = x;
+        startScrollLeftVal = el.scrollLeft;
+      } else if (el.scrollLeft <= 0) {
+        el.scrollLeft += halfWidth;
+        startXVal = x;
+        startScrollLeftVal = el.scrollLeft;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (isDraggingActive) {
+        isDraggingActive = false;
+        setTimeout(() => {
+          dragMoved.current = false;
+        }, 80);
+        setTimeout(startAutoplay, 1500);
+      }
+    };
+
+    // Hover
+    const handleMouseEnter = () => {
+      isHoveredVal = true;
+      stopAutoplay();
+    };
+
+    const handleMouseLeaveTab = () => {
+      isHoveredVal = false;
+      if (!isDraggingActive) {
+        startAutoplay();
+      }
+    };
+
+    el.addEventListener("mousedown", handleMouseDown);
+    el.addEventListener("mousemove", handleMouseMove);
+    el.addEventListener("mouseup", handleMouseUpOrLeave);
+    el.addEventListener("mouseleave", handleMouseUpOrLeave);
+
+    el.addEventListener("touchstart", handleTouchStart, { passive: true });
+    el.addEventListener("touchmove", handleTouchMove, { passive: true });
+    el.addEventListener("touchend", handleTouchEnd);
+
+    el.addEventListener("mouseenter", handleMouseEnter);
+    el.addEventListener("mouseleave", handleMouseLeaveTab);
+
+    el.style.cursor = "grab";
+    startAutoplay();
+
+    return () => {
+      stopAutoplay();
+      el.removeEventListener("mousedown", handleMouseDown);
+      el.removeEventListener("mousemove", handleMouseMove);
+      el.removeEventListener("mouseup", handleMouseUpOrLeave);
+      el.removeEventListener("mouseleave", handleMouseUpOrLeave);
+
+      el.removeEventListener("touchstart", handleTouchStart);
+      el.removeEventListener("touchmove", handleTouchMove);
+      el.removeEventListener("touchend", handleTouchEnd);
+
+      el.removeEventListener("mouseenter", handleMouseEnter);
+      el.removeEventListener("mouseleave", handleMouseLeaveTab);
+    };
+  }, [specialties]);
 
   useEffect(() => {
     if (heroBgs.length === 0) return;
@@ -741,14 +1083,21 @@ export default function Home() {
                     </select>
                   </div>
 
-                  {/* Health Concerns — dropdown */}
                   <div className="field">
                     <label htmlFor="fconcern">Health Concern *</label>
-                    <select id="fconcern" name="fconcern" required defaultValue="">
+                    <select 
+                      id="fconcern" 
+                      name="fconcern" 
+                      required 
+                      value={selectedConcern} 
+                      onChange={(e) => setSelectedConcern(e.target.value)}
+                    >
                       <option value="" disabled>Select your main concern</option>
-                      {CONCERNS.map((concern) => (
-                        <option key={concern} value={concern}>{concern}</option>
+                      <option value="None">None</option>
+                      {specialties.map((spec) => (
+                        <option key={spec.id} value={spec.title}>{spec.title}</option>
                       ))}
+                      <option value="Other (Please specify)">Other (Please specify)</option>
                     </select>
                   </div>
 
@@ -874,6 +1223,48 @@ export default function Home() {
                           <span>{slide.label}</span>
                         </>
                       )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= OUR SPECIALTIES ================= */}
+      <section className="pad specialties-section" id="specialties">
+        <div className="wrap">
+          <div className="section-head text-center" style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 30px" }}>
+            <span className="eyebrow" style={{ justifyContent: "center" }}>Expert Care Areas</span>
+            <h2 style={{ marginTop: "8px" }}>Our Specialties</h2>
+            <p style={{ marginTop: "8px", color: "var(--muted-on-light)", fontSize: "14px" }}>
+              We provide clinical guidance and management plans for chronic health conditions.
+            </p>
+          </div>
+
+          <div className="specialties-carousel-outer">
+            <div className="specialties-carousel-track-wrap" ref={specialtiesTrackRef}>
+              <div className="specialties-carousel-track">
+                {specialties.length > 0 && [...specialties, ...specialties].map((spec, i) => (
+                  <div key={i} className="specialty-slide">
+                    <div className="specialty-card">
+                      <div className={`specialty-img-box card-${spec.icon}`} style={{ padding: spec.imageUrl ? "0" : undefined }}>
+                        {spec.imageUrl ? (
+                          <img src={spec.imageUrl || undefined} alt={spec.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                        ) : (
+                          <SpecialtyIcon icon={spec.icon} />
+                        )}
+                      </div>
+                      <div className="specialty-info">
+                        <h3>{formatTitle(spec.title)}</h3>
+                      </div>
+                      <button 
+                        className="specialty-cta-btn"
+                        onClick={() => handleSpecialtyCTA(spec.title)}
+                      >
+                        Contact Now
+                      </button>
                     </div>
                   </div>
                 ))}

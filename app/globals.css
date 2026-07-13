@@ -1622,3 +1622,184 @@ footer {
   100% { transform: translateX(-50%); }
 }
 
+/* ================= SPECIALTIES SECTION ================= */
+.specialties-section {
+  background-color: var(--cream);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 48px 0 !important; /* Minimal height */
+}
+
+.specialties-carousel-outer {
+  position: relative;
+  margin-top: 20px;
+}
+
+.specialties-carousel-track-wrap {
+  container-type: inline-size;
+  overflow: hidden;
+  user-select: none; /* Prevents text selection during drag */
+  -webkit-user-select: none;
+}
+
+.specialties-carousel-track {
+  display: flex;
+  gap: 0;
+  width: max-content;
+}
+
+.specialty-slide {
+  flex: 0 0 calc(100cqw / 5); /* 5 portrait cards per screen on desktop */
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.specialty-card {
+  background: #FFFFFF; /* White card container like reference */
+  border-radius: 24px; /* Rounded corners like reference */
+  padding: 16px; /* Uniform padding on all sides like reference */
+  border: 1px solid var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out top, middle, and bottom elements evenly! */
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 330px; /* Taller card to support square aspect image box */
+  position: relative;
+  overflow: hidden;
+}
+
+.specialty-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(244, 25, 82, 0.2);
+}
+
+.specialty-img-box {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Make it a perfect square on all devices */
+  border-radius: 18px; /* Bigger rounded corner */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradients for specialty header boxes */
+.specialty-img-box.card-weight { background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); }
+.specialty-img-box.card-thyroid { background: linear-gradient(135deg, #2e1065 0%, #0f172a 100%); }
+.specialty-img-box.card-pcos { background: linear-gradient(135deg, #4c0519 0%, #0f172a 100%); }
+.specialty-img-box.card-diabetes { background: linear-gradient(135deg, #450a0a 0%, #0f172a 100%); }
+.specialty-img-box.card-hypertension { background: linear-gradient(135deg, #064e3b 0%, #0f172a 100%); }
+.specialty-img-box.card-joint { background: linear-gradient(135deg, #172554 0%, #0f172a 100%); }
+.specialty-img-box.card-liver { background: linear-gradient(135deg, #042f2e 0%, #0f172a 100%); }
+.specialty-img-box.card-heart { background: linear-gradient(135deg, #500724 0%, #0f172a 100%); }
+.specialty-img-box.card-cholesterol { background: linear-gradient(135deg, #422006 0%, #0f172a 100%); }
+.specialty-img-box.card-ibs { background: linear-gradient(135deg, #14532d 0%, #0f172a 100%); }
+.specialty-img-box.card-pregnancy { background: linear-gradient(135deg, #4c0519 0%, #0f172a 100%); }
+.specialty-img-box.card-post_pregnancy { background: linear-gradient(135deg, #3b0764 0%, #0f172a 100%); }
+.specialty-img-box.card-child_nutrition { background: linear-gradient(135deg, #0c4a6e 0%, #0f172a 100%); }
+.specialty-img-box.card-general { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+
+.specialty-img-box svg {
+  width: 48px; /* Bigger icon size */
+  height: 48px;
+  color: #FFFFFF;
+}
+
+.specialty-info {
+  padding: 0; /* Let space-between define the spacing */
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.specialty-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 13.5px;
+  color: var(--ink); /* Dark text on white card */
+  margin: 0;
+  line-height: 1.35;
+  text-align: center; /* Center horizontally */
+  height: 38px; /* Enforces exactly 2 lines height */
+  display: flex;
+  align-items: center; /* Center vertically inside the 2-line box */
+  justify-content: center; /* Center horizontally in flex */
+  overflow: hidden;
+  width: 100%;
+}
+
+.specialty-cta-btn {
+  background-color: var(--red); /* Vibrant brand color pill button at bottom */
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 100px; /* Pill button like reference */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%; /* Spans full card width inside padding */
+}
+
+.specialty-cta-btn:hover {
+  background-color: var(--red-deep);
+  box-shadow: 0 4px 12px rgba(244, 25, 82, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Specialties Section Responsive */
+@media (max-width: 980px) {
+  .specialty-slide {
+    flex: 0 0 calc(100cqw / 3.2); /* 3.2 portrait cards per screen on tablet */
+  }
+}
+
+@media (max-width: 640px) {
+  .specialty-slide {
+    flex: 0 0 calc(100cqw / 2.3); /* 2.3 portrait cards per screen on mobile */
+    padding: 0 5px;
+  }
+  .specialty-card {
+    padding: 12px;
+    height: 250px; /* Taller card on mobile to accommodate square image box */
+    border-radius: 18px;
+  }
+  .specialty-img-box {
+    border-radius: 14px;
+    height: auto; /* Height is auto-calculated from width using aspect-ratio */
+  }
+  .specialty-img-box svg {
+    width: 36px;
+    height: 36px;
+  }
+  .specialty-info {
+    padding: 0;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .specialty-card h3 {
+    font-size: 11.5px;
+    height: 32px; /* Enforces exactly 2 lines height on mobile */
+    text-align: center;
+    justify-content: center;
+    margin: 0;
+  }
+  .specialty-cta-btn {
+    padding: 8px 12px;
+    font-size: 9.5px;
+  }
+}
+
+

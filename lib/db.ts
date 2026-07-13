@@ -57,7 +57,7 @@ export async function initDb() {
   `;
 
   // Seed default content keys if not present
-  const contentKeys = ['heroBgs', 'avatarIcons', 'transformations', 'foodPlan', 'successStories'];
+  const contentKeys = ['heroBgs', 'avatarIcons', 'transformations', 'foodPlan', 'successStories', 'specialties'];
   for (const key of contentKeys) {
     await sql`
       INSERT INTO content (key, value)

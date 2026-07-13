@@ -77,6 +77,151 @@ const IconLock = () => (
   </svg>
 );
 
+const IconBriefcase = () => (
+  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  </svg>
+);
+
+interface Specialty {
+  id: string;
+  title: string;
+  icon: string;
+  imageUrl?: string;
+}
+
+const DEFAULT_SPECIALTIES: Specialty[] = [
+  { id: "spec-1", title: "Thyroid Management", icon: "thyroid", imageUrl: "https://i.ibb.co/fGPq1my0/thyroid.png" },
+  { id: "spec-2", title: "Diabetes Management", icon: "diabetes", imageUrl: "https://i.ibb.co/q3h7G8XM/Diabetes.png" },
+  { id: "spec-3", title: "PCOS/PCOD Management", icon: "pcos", imageUrl: "https://i.ibb.co/8n3K8gz8/PCOS.png" },
+  { id: "spec-4", title: "Weight Management", icon: "weight" },
+  { id: "spec-5", title: "Hyper/Hypo Tension Management", icon: "hypertension", imageUrl: "https://i.ibb.co/YFSD4BZC/Hyper-HYPO.png" },
+  { id: "spec-6", title: "Joint Pain Management", icon: "joint", imageUrl: "https://i.ibb.co/0RbbKC4W/Bone.png" },
+  { id: "spec-7", title: "Liver Management", icon: "liver" },
+  { id: "spec-8", title: "Healthy Heart Management", icon: "heart", imageUrl: "https://i.ibb.co/Qvjg74h0/Heart.png" },
+  { id: "spec-9", title: "Cholesterol Management", icon: "cholesterol", imageUrl: "https://i.ibb.co/TqMPjkmn/Cholestrol.png" },
+  { id: "spec-10", title: "IBS and Constipation Management", icon: "ibs", imageUrl: "https://i.ibb.co/5xBCG0nW/IBS.png" },
+  { id: "spec-11", title: "Pregnancy Guidance", icon: "pregnancy", imageUrl: "https://i.ibb.co/HDLd74dv/Pregnancy.png" },
+  { id: "spec-12", title: "Post Pregnancy Guidance", icon: "post_pregnancy", imageUrl: "https://i.ibb.co/7mS2ChH/Post-prenancy.png" },
+  { id: "spec-13", title: "Child Nutrition Guidance", icon: "child_nutrition", imageUrl: "https://i.ibb.co/mCWKyN6r/Child.png" }
+];
+
+const SpecialtyIcon = ({ icon }: { icon: string }) => {
+  switch (icon) {
+    case "weight":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <path d="M5 3h14c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2z" />
+          <path d="M12 7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+          <path d="M12 17h.01M9 17h.01M15 17h.01" />
+          <path d="M12 10l2 2" />
+        </svg>
+      );
+    case "thyroid":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <path d="M12 7c-1.5-2.5-4.5-3-6.5-1s-1.5 5 1.5 7.5c2 1.7 4 2.5 5 3.5 1-1 3-1.8 5-3.5 3-2.5 3.5-5.5 1.5-7.5s-5-1.5-6.5 1z" />
+          <path d="M12 5v14" />
+        </svg>
+      );
+    case "pcos":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <circle cx="12" cy="8" r="5" />
+          <path d="M12 13v8" />
+          <path d="M9 17h6" />
+          <path d="M12 8m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+        </svg>
+      );
+    case "diabetes":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z" />
+          <path d="M9 13h6" />
+          <path d="M12 10v6" />
+        </svg>
+      );
+    case "hypertension":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          <path d="M8 10h8M12 7v6" />
+        </svg>
+      );
+    case "joint":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <path d="M8 3h8v3H8V3zM8 18h8v3H8v-3z" />
+          <path d="M12 6v12M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+        </svg>
+      );
+    case "liver":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <path d="M12 3C7 3 3 6.5 3 11c0 3.5 2.5 6 5.5 7.5S14 21 16.5 21c3.5 0 4.5-2 4.5-5.5 0-4.5-4-9.5-9-9.5Z" />
+          <circle cx="12" cy="13" r="2.5" />
+          <path d="M16 16c-1.5-1.5-3-1.5-4.5 0" />
+        </svg>
+      );
+    case "heart":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          <path d="M6 9.5h2.5l1.5-3.5 2 7 1.5-5 1 1.5H18" />
+        </svg>
+      );
+    case "cholesterol":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="6" />
+          <circle cx="12" cy="12" r="2" />
+        </svg>
+      );
+    case "ibs":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <path d="M4 8c2.5-3 6-3 8 0s5.5 3 8 0" />
+          <path d="M4 12c2.5 3 6 3 8 0s5.5-3 8 0" />
+          <path d="M4 16c2.5-3 6-3 8 0s5.5 3 8 0" />
+        </svg>
+      );
+    case "pregnancy":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <path d="M12 20V10" />
+          <path d="M12 10a5 5 0 0 1 5-5h2v2a5 5 0 0 1-5 5h-2z" />
+          <path d="M12 14a5 5 0 0 0-5-5H5v2a5 5 0 0 0 5 5h2z" />
+        </svg>
+      );
+    case "post_pregnancy":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+          <path d="M12 2a15 15 0 0 0-3 7.5 15 15 0 0 0 3 7.5 15 15 0 0 0 3-7.5A15 15 0 0 0 12 2Z" />
+          <path d="M4.5 12a15 15 0 0 0 7.5 3 15 15 0 0 0 7.5-3 15 15 0 0 0-7.5-3 15 15 0 0 0-7.5 3Z" />
+        </svg>
+      );
+    case "child_nutrition":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <circle cx="12" cy="12" r="10" />
+          <path d="M8 13.5s1.5 2.5 4 2.5 4-2.5 4-2.5" />
+          <circle cx="9" cy="9.5" r="1.2" fill="currentColor" />
+          <circle cx="15" cy="9.5" r="1.2" fill="currentColor" />
+          <path d="M12 2v2" />
+        </svg>
+      );
+    default:
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ width: "24px", height: "24px" }}>
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 8v8M8 12h8" />
+        </svg>
+      );
+  }
+};
+
 const IconLogout = () => (
   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -105,7 +250,11 @@ export default function AdminPanel() {
   const [transformations, setTransformations] = useState<any[]>([]);
   const [foodPlan, setFoodPlan] = useState<any[]>([]);
   const [successStories, setSuccessStories] = useState<any[]>([]);
+  const [specialties, setSpecialties] = useState<any[]>([]);
   const [consultations, setConsultations] = useState<any[]>([]);
+
+  // Specialty form state
+  const [specialtyForm, setSpecialtyForm] = useState({ title: "", icon: "general", imageUrl: "" });
 
   // Settings states
   const [adminEmail, setAdminEmail] = useState("");
@@ -165,6 +314,7 @@ export default function AdminPanel() {
           setTransformations(content.transformations || []);
           setFoodPlan(content.foodPlan || []);
           setSuccessStories(content.successStories || []);
+          setSpecialties(content.specialties && content.specialties.length > 0 ? content.specialties : DEFAULT_SPECIALTIES);
         } else {
           addToast("Failed to fetch page contents", "error");
         }
@@ -540,6 +690,47 @@ export default function AdminPanel() {
     }
   }
 
+  // 6. Specialties operations
+  async function handleSaveSpecialty() {
+    if (!specialtyForm.title.trim()) {
+      addToast("Specialty Title is required", "error");
+      return;
+    }
+
+    let newList = [...specialties];
+    if (modalMode === "add") {
+      newList.push({
+        id: "spec-" + Date.now(),
+        title: specialtyForm.title.trim(),
+        icon: specialtyForm.icon,
+        imageUrl: specialtyForm.imageUrl.trim()
+      });
+    } else if (modalMode === "edit" && editIndex !== null) {
+      newList[editIndex] = {
+        ...newList[editIndex],
+        title: specialtyForm.title.trim(),
+        icon: specialtyForm.icon,
+        imageUrl: specialtyForm.imageUrl.trim()
+      };
+    }
+
+    const success = await saveContent({ heroBgs, avatarIcons, transformations, foodPlan, successStories, specialties: newList });
+    if (success) {
+      setSpecialties(newList);
+      setSpecialtyForm({ title: "", icon: "general", imageUrl: "" });
+      setCurrentModal(null);
+    }
+  }
+
+  async function handleDeleteSpecialty(index: number) {
+    if (!confirm("Are you sure you want to delete this specialty card?")) return;
+    const newList = specialties.filter((_, i) => i !== index);
+    const success = await saveContent({ heroBgs, avatarIcons, transformations, foodPlan, successStories, specialties: newList });
+    if (success) {
+      setSpecialties(newList);
+    }
+  }
+
   // Search/Filter consultations list
   const filteredConsultations = consultations.filter((req) => {
     const term = searchQuery.toLowerCase();
@@ -668,6 +859,12 @@ export default function AdminPanel() {
                 <IconChat /> Success Stories
               </button>
               <button
+                className={`menu-btn${activeTab === "specialties" ? " active" : ""}`}
+                onClick={() => setActiveTab("specialties")}
+              >
+                <IconBriefcase /> Specialties
+              </button>
+              <button
                 className={`menu-btn${activeTab === "consultations" ? " active" : ""}`}
                 onClick={() => setActiveTab("consultations")}
               >
@@ -708,6 +905,7 @@ export default function AdminPanel() {
                 {activeTab === "dashboard" && "Dashboard Overview"}
                 {activeTab === "hero" && "Hero Section & Icons"}
                 {activeTab === "transformations" && "Client Transformations"}
+                {activeTab === "specialties" && "Our Specialties"}
                 {activeTab === "food" && "Your Plate, Our Plan"}
                 {activeTab === "testimonials" && "Success Stories (Testimonials)"}
                 {activeTab === "consultations" && "Free Consultation Submissions"}
@@ -717,6 +915,7 @@ export default function AdminPanel() {
                 {activeTab === "dashboard" && "Overall fitness clinic statistics and status indicator."}
                 {activeTab === "hero" && "Update background sliding images and small member avatar stacks."}
                 {activeTab === "transformations" && "Add, edit, or delete client journey stories, names, and concerns."}
+                {activeTab === "specialties" && "Manage clinical care categories, disorder name tags, and circle illustrated icons."}
                 {activeTab === "food" && "Manage clinically-balanced meals, taglines, and dish preview cards."}
                 {activeTab === "testimonials" && "Manage approved medical reviews and client transformations details."}
                 {activeTab === "consultations" && "Review client clinical history records, contact numbers, and slots."}
@@ -853,7 +1052,7 @@ export default function AdminPanel() {
                   {heroBgs.map((url, index) => (
                     <div className="image-item-card" key={index}>
                       <div className="image-preview-box">
-                        <img src={url} alt={`Hero BG ${index + 1}`} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"; }} />
+                        <img src={url || undefined} alt={`Hero BG ${index + 1}`} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"; }} />
                       </div>
                       <div className="image-item-actions">
                         <span className="image-url-text">{url}</span>
@@ -894,7 +1093,7 @@ export default function AdminPanel() {
                   {avatarIcons.map((url, index) => (
                     <div className="image-item-card" key={index}>
                       <div className="image-preview-box ratio-square" style={{ padding: "10px" }}>
-                        <img src={url} alt={`Avatar Icon ${index + 1}`} style={{ borderRadius: "50%" }} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"; }} />
+                        <img src={url || undefined} alt={`Avatar Icon ${index + 1}`} style={{ borderRadius: "50%" }} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"; }} />
                       </div>
                       <div className="image-item-actions">
                         <span className="image-url-text">{url}</span>
@@ -937,7 +1136,7 @@ export default function AdminPanel() {
                   {transformations.map((item, index) => (
                     <div className="item-admin-card" key={item.id || index}>
                       <div className="image-preview-box">
-                        <img src={item.imageUrl} alt={item.name} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"; }} />
+                        <img src={item.imageUrl || undefined} alt={item.name} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"; }} />
                       </div>
                       <div className="item-card-body">
                         <span className="item-card-subtitle">{item.disease}</span>
@@ -1005,7 +1204,7 @@ export default function AdminPanel() {
                   {foodPlan.map((item, index) => (
                     <div className="item-admin-card" key={item.id || index}>
                       <div className="image-preview-box">
-                        <img src={item.imageUrl} alt={item.label} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"; }} />
+                        <img src={item.imageUrl || undefined} alt={item.label} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"; }} />
                       </div>
                       <div className="item-card-body">
                         <span className="item-card-subtitle" style={{ background: "rgba(233, 162, 59, 0.1)", color: "#E9A23B" }}>
@@ -1072,7 +1271,7 @@ export default function AdminPanel() {
                   {successStories.map((item, index) => (
                     <div className="item-admin-card" key={item.id || index}>
                       <div className="image-preview-box" style={{ aspectRatio: "4/3" }}>
-                        <img src={item.imageUrl} alt={item.name} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop"; }} />
+                        <img src={item.imageUrl || undefined} alt={item.name} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop"; }} />
                       </div>
                       <div className="item-card-body">
                         <span className="item-card-subtitle" style={{ background: "rgba(75, 108, 88, 0.1)", color: "#4B6C58" }}>
@@ -1107,6 +1306,96 @@ export default function AdminPanel() {
                             className="admin-btn admin-btn-danger admin-btn-sm trash-btn-sm"
                             onClick={() => handleDeleteTestimonial(index)}
                             title="Delete Testimonial"
+                          >
+                            <IconTrash />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* TAB 5b: SPECIALTIES */}
+          <div className={`tab-panel${activeTab === "specialties" ? " active" : ""}`}>
+            <div className="panel-card">
+              <div className="panel-card-header">
+                <h2>Health Specialties & Care Areas</h2>
+                <button
+                  className="admin-btn admin-btn-primary"
+                  onClick={() => {
+                    setModalMode("add");
+                    setSpecialtyForm({ title: "", icon: "general", imageUrl: "" });
+                    setCurrentModal("specialty");
+                  }}
+                >
+                  <IconPlus /> Add Specialty
+                </button>
+              </div>
+
+              {specialties.length === 0 ? (
+                <div className="empty-state">
+                  <IconBriefcase />
+                  <h3>No Specialties Registered</h3>
+                  <p>Submit client specialties, disorder names, and select circle icons.</p>
+                </div>
+              ) : (
+                <div className="content-grid">
+                  {specialties.map((item, index) => (
+                    <div className="item-admin-card" key={item.id || index}>
+                      <div className="image-preview-box" style={{ 
+                        aspectRatio: "16/9", 
+                        display: "flex", 
+                        alignItems: "center", 
+                        justifyContent: "center",
+                        background: "#fbfbf8",
+                        borderBottom: "1px solid var(--admin-border)",
+                        padding: item.imageUrl ? "0" : "24px"
+                      }}>
+                        {item.imageUrl ? (
+                          <img src={item.imageUrl || undefined} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { (e.target as any).src = "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop"; }} />
+                        ) : (
+                          <div className={`specialty-icon-wrapper icon-${item.icon}`} style={{ 
+                            width: "72px", 
+                            height: "72px", 
+                            borderRadius: "50%",
+                            display: "flex", 
+                            alignItems: "center", 
+                            justifyContent: "center",
+                            transform: "none"
+                          }}>
+                            <SpecialtyIcon icon={item.icon} />
+                          </div>
+                        )}
+                      </div>
+                      <div className="item-card-body" style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+                        <span className="item-card-subtitle" style={{ background: "rgba(244, 25, 82, 0.08)", color: "var(--red)", textTransform: "uppercase", fontSize: "10px", fontWeight: "700" }}>
+                          Theme: {item.icon}
+                        </span>
+                        <h3 className="item-card-title" style={{ fontSize: "16px", margin: "8px 0", fontWeight: "700", fontFamily: "Poppins, sans-serif" }}>{item.title}</h3>
+                        <p style={{ fontSize: "12px", color: "var(--admin-text-muted)", margin: "0 0 16px 0" }}>Management and guidance card</p>
+                        <div className="item-card-actions" style={{ marginTop: "auto", display: "flex", gap: "8px" }}>
+                          <button
+                            className="admin-btn admin-btn-secondary admin-btn-sm"
+                            onClick={() => {
+                              setModalMode("edit");
+                              setEditIndex(index);
+                              setSpecialtyForm({
+                                title: item.title || "",
+                                icon: item.icon || "general",
+                                imageUrl: item.imageUrl || ""
+                              });
+                              setCurrentModal("specialty");
+                            }}
+                          >
+                            <IconEdit /> Edit
+                          </button>
+                          <button
+                            className="admin-btn admin-btn-danger admin-btn-sm trash-btn-sm"
+                            onClick={() => handleDeleteSpecialty(index)}
+                            title="Delete Specialty"
                           >
                             <IconTrash />
                           </button>
@@ -1433,6 +1722,64 @@ export default function AdminPanel() {
           <div className="modal-footer">
             <button className="admin-btn admin-btn-secondary" onClick={() => setCurrentModal(null)}>Cancel</button>
             <button className="admin-btn admin-btn-primary" onClick={handleSaveTestimonial}>Save Review</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Specialty Modal */}
+      <div className={`modal-overlay${currentModal === "specialty" ? " active" : ""}`}>
+        <div className="modal-box">
+          <div className="modal-header">
+            <h3>{modalMode === "add" ? "Add Specialty Service" : "Edit Specialty Details"}</h3>
+            <button className="drawer-close" onClick={() => setCurrentModal(null)}>×</button>
+          </div>
+          <div className="admin-input-group">
+            <label>Specialty Title / Disorder Name *</label>
+            <input
+              type="text"
+              className="admin-input"
+              placeholder="e.g. Thyroid Management"
+              value={specialtyForm.title}
+              onChange={(e) => setSpecialtyForm({ ...specialtyForm, title: e.target.value })}
+            />
+          </div>
+          <div className="admin-input-group">
+            <label>Illustrated 2D Icon Category *</label>
+            <select
+              className="admin-input"
+              value={specialtyForm.icon}
+              onChange={(e) => setSpecialtyForm({ ...specialtyForm, icon: e.target.value })}
+              style={{ background: "#ffffff", height: "46px" }}
+            >
+              <option value="weight">Weight (Scale/Tape)</option>
+              <option value="thyroid">Thyroid (Gland/Butterfly)</option>
+              <option value="pcos">PCOS (Female Symbol/Flower)</option>
+              <option value="diabetes">Diabetes (Blood Drop/Plus)</option>
+              <option value="hypertension">Hypertension (Heart/Cross)</option>
+              <option value="joint">Joint Pain (Joint/Bone)</option>
+              <option value="liver">Liver (Organ/Shield)</option>
+              <option value="heart">Healthy Heart (ECG Pulse)</option>
+              <option value="cholesterol">Cholesterol (Droplet/Artery)</option>
+              <option value="ibs">IBS & Constipation (Wave/Digestive)</option>
+              <option value="pregnancy">Pregnancy Guidance (Sprout/Maternity)</option>
+              <option value="post_pregnancy">Post Pregnancy Guidance (Recovery Blossom)</option>
+              <option value="child_nutrition">Child Nutrition Guidance (Bowl/Smile)</option>
+              <option value="general">General (Pulse/Shield)</option>
+            </select>
+          </div>
+          <div className="admin-input-group">
+            <label>Image URL (Optional - overrides default icon if provided)</label>
+            <input
+              type="text"
+              className="admin-input"
+              placeholder="e.g. https://images.unsplash.com/photo-..."
+              value={specialtyForm.imageUrl}
+              onChange={(e) => setSpecialtyForm({ ...specialtyForm, imageUrl: e.target.value })}
+            />
+          </div>
+          <div className="modal-footer">
+            <button className="admin-btn admin-btn-secondary" onClick={() => setCurrentModal(null)}>Cancel</button>
+            <button className="admin-btn admin-btn-primary" onClick={handleSaveSpecialty}>Save Specialty</button>
           </div>
         </div>
       </div>
