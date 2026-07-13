@@ -91,19 +91,19 @@ interface Specialty {
 }
 
 const DEFAULT_SPECIALTIES: Specialty[] = [
-  { id: "spec-1", title: "Thyroid Management", icon: "thyroid", imageUrl: "https://i.ibb.co/fGPq1my0/thyroid.png" },
-  { id: "spec-2", title: "Diabetes Management", icon: "diabetes", imageUrl: "https://i.ibb.co/q3h7G8XM/Diabetes.png" },
-  { id: "spec-3", title: "PCOS/PCOD Management", icon: "pcos", imageUrl: "https://i.ibb.co/8n3K8gz8/PCOS.png" },
-  { id: "spec-4", title: "Weight Management", icon: "weight" },
-  { id: "spec-5", title: "Hyper/Hypo Tension Management", icon: "hypertension", imageUrl: "https://i.ibb.co/YFSD4BZC/Hyper-HYPO.png" },
-  { id: "spec-6", title: "Joint Pain Management", icon: "joint", imageUrl: "https://i.ibb.co/0RbbKC4W/Bone.png" },
-  { id: "spec-7", title: "Liver Management", icon: "liver" },
-  { id: "spec-8", title: "Healthy Heart Management", icon: "heart", imageUrl: "https://i.ibb.co/Qvjg74h0/Heart.png" },
-  { id: "spec-9", title: "Cholesterol Management", icon: "cholesterol", imageUrl: "https://i.ibb.co/TqMPjkmn/Cholestrol.png" },
-  { id: "spec-10", title: "IBS and Constipation Management", icon: "ibs", imageUrl: "https://i.ibb.co/5xBCG0nW/IBS.png" },
-  { id: "spec-11", title: "Pregnancy Guidance", icon: "pregnancy", imageUrl: "https://i.ibb.co/HDLd74dv/Pregnancy.png" },
-  { id: "spec-12", title: "Post Pregnancy Guidance", icon: "post_pregnancy", imageUrl: "https://i.ibb.co/7mS2ChH/Post-prenancy.png" },
-  { id: "spec-13", title: "Child Nutrition Guidance", icon: "child_nutrition", imageUrl: "https://i.ibb.co/mCWKyN6r/Child.png" }
+  { id: "spec-1", title: "Thyroid Management", icon: "thyroid", imageUrl: "/specialties/thyroid.png" },
+  { id: "spec-2", title: "Diabetes Management", icon: "diabetes", imageUrl: "/specialties/diabetes.png" },
+  { id: "spec-3", title: "PCOS/PCOD Management", icon: "pcos", imageUrl: "/specialties/pcos.png" },
+  { id: "spec-4", title: "Weight Management", icon: "weight", imageUrl: "/specialties/weight.png" },
+  { id: "spec-5", title: "Hyper/Hypo Tension Management", icon: "hypertension", imageUrl: "/specialties/hypertension.png" },
+  { id: "spec-6", title: "Joint Pain Management", icon: "joint", imageUrl: "/specialties/joint.png" },
+  { id: "spec-7", title: "Liver Management", icon: "liver", imageUrl: "/specialties/liver.png" },
+  { id: "spec-8", title: "Healthy Heart Management", icon: "heart", imageUrl: "/specialties/heart.png" },
+  { id: "spec-9", title: "Cholesterol Management", icon: "cholesterol", imageUrl: "/specialties/cholesterol.png" },
+  { id: "spec-10", title: "IBS and Constipation Management", icon: "ibs", imageUrl: "/specialties/ibs.png" },
+  { id: "spec-11", title: "Pregnancy Guidance", icon: "pregnancy", imageUrl: "/specialties/pregnancy.png" },
+  { id: "spec-12", title: "Post Pregnancy Guidance", icon: "post_pregnancy", imageUrl: "/specialties/post_pregnancy.png" },
+  { id: "spec-13", title: "Child Nutrition Guidance", icon: "child_nutrition", imageUrl: "/specialties/child_nutrition.png" }
 ];
 
 const SpecialtyIcon = ({ icon }: { icon: string }) => {
