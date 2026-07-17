@@ -242,7 +242,13 @@ export default function AdminPanel() {
   const [authLoading, setAuthLoading] = useState(false);
 
   const [activeTab, setActiveTab] = useState("dashboard");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const handleTabSwitch = (tab: string) => {
+    setActiveTab(tab);
+    setIsSidebarOpen(false);
+  };
 
   // Dynamic state matching db.json structure
   const [heroBgs, setHeroBgs] = useState<string[]>([]);
@@ -821,8 +827,11 @@ export default function AdminPanel() {
   return (
     <div className="admin-body">
       <div className="admin-layout">
+        {/* Mobile Overlay */}
+        <div className={`mobile-overlay ${isSidebarOpen ? "open" : ""}`} onClick={() => setIsSidebarOpen(false)}></div>
+        
         {/* ================= SIDEBAR ================= */}
-        <aside className="admin-sidebar">
+        <aside className={`admin-sidebar ${isSidebarOpen ? "open" : ""}`}>
           <div>
             <div className="sidebar-logo">
               <span>Addy</span> Fitness Admin
@@ -830,49 +839,49 @@ export default function AdminPanel() {
             <nav className="sidebar-menu">
               <button
                 className={`menu-btn${activeTab === "dashboard" ? " active" : ""}`}
-                onClick={() => setActiveTab("dashboard")}
+                onClick={() => handleTabSwitch("dashboard")}
               >
                 <IconDashboard /> Dashboard
               </button>
               <button
                 className={`menu-btn${activeTab === "hero" ? " active" : ""}`}
-                onClick={() => setActiveTab("hero")}
+                onClick={() => handleTabSwitch("hero")}
               >
                 <IconImage /> Hero & Avatars
               </button>
               <button
                 className={`menu-btn${activeTab === "transformations" ? " active" : ""}`}
-                onClick={() => setActiveTab("transformations")}
+                onClick={() => handleTabSwitch("transformations")}
               >
                 <IconUserGroup /> Transformations
               </button>
               <button
                 className={`menu-btn${activeTab === "food" ? " active" : ""}`}
-                onClick={() => setActiveTab("food")}
+                onClick={() => handleTabSwitch("food")}
               >
                 <IconSparkles /> Your Plate, Our Plan
               </button>
               <button
                 className={`menu-btn${activeTab === "testimonials" ? " active" : ""}`}
-                onClick={() => setActiveTab("testimonials")}
+                onClick={() => handleTabSwitch("testimonials")}
               >
                 <IconChat /> Success Stories
               </button>
               <button
                 className={`menu-btn${activeTab === "specialties" ? " active" : ""}`}
-                onClick={() => setActiveTab("specialties")}
+                onClick={() => handleTabSwitch("specialties")}
               >
                 <IconBriefcase /> Specialties
               </button>
               <button
                 className={`menu-btn${activeTab === "consultations" ? " active" : ""}`}
-                onClick={() => setActiveTab("consultations")}
+                onClick={() => handleTabSwitch("consultations")}
               >
                 <IconClipboardList /> Consultations
               </button>
               <button
                 className={`menu-btn${activeTab === "settings" ? " active" : ""}`}
-                onClick={() => setActiveTab("settings")}
+                onClick={() => handleTabSwitch("settings")}
               >
                 <IconSettings /> settings
               </button>
@@ -900,18 +909,24 @@ export default function AdminPanel() {
         <main className="admin-main">
           {/* Header */}
           <header className="admin-header">
-            <div>
-              <h1>
-                {activeTab === "dashboard" && "Dashboard Overview"}
-                {activeTab === "hero" && "Hero Section & Icons"}
-                {activeTab === "transformations" && "Client Transformations"}
-                {activeTab === "specialties" && "Our Specialties"}
-                {activeTab === "food" && "Your Plate, Our Plan"}
-                {activeTab === "testimonials" && "Success Stories (Testimonials)"}
-                {activeTab === "consultations" && "Free Consultation Submissions"}
-                {activeTab === "settings" && "Credentials & Settings"}
-              </h1>
-              <p style={{ margin: "4px 0 0", color: "var(--admin-text-muted)", fontSize: "14px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+              <button className="hamburger-btn" onClick={() => setIsSidebarOpen(true)}>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+              <div>
+                <h1 style={{ margin: 0 }}>
+                  {activeTab === "dashboard" && "Dashboard Overview"}
+                  {activeTab === "hero" && "Hero Section & Icons"}
+                  {activeTab === "transformations" && "Client Transformations"}
+                  {activeTab === "specialties" && "Our Specialties"}
+                  {activeTab === "food" && "Your Plate, Our Plan"}
+                  {activeTab === "testimonials" && "Success Stories (Testimonials)"}
+                  {activeTab === "consultations" && "Free Consultation Submissions"}
+                  {activeTab === "settings" && "Credentials & Settings"}
+                </h1>
+                <p style={{ margin: "4px 0 0", color: "var(--admin-text-muted)", fontSize: "14px" }}>
                 {activeTab === "dashboard" && "Overall fitness clinic statistics and status indicator."}
                 {activeTab === "hero" && "Update background sliding images and small member avatar stacks."}
                 {activeTab === "transformations" && "Add, edit, or delete client journey stories, names, and concerns."}
@@ -973,7 +988,7 @@ export default function AdminPanel() {
             <div className="panel-card">
               <div className="panel-card-header">
                 <h2>Recent Consultation Bookings</h2>
-                <button className="admin-btn admin-btn-primary admin-btn-sm" onClick={() => setActiveTab("consultations")}>
+                <button className="admin-btn admin-btn-primary admin-btn-sm" onClick={() => handleTabSwitch("consultations")}>
                   View All Submissions
                 </button>
               </div>
