@@ -857,13 +857,51 @@ tr.contacted-row:hover {
     align-items: center;
     justify-content: center;
   }
-  .content-grid {
+  .content-grid, .image-list-grid {
     grid-template-columns: 1fr;
   }
   .panel-card {
-    padding: 20px;
+    padding: 16px;
   }
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Fix Drawer on mobile */
+  .drawer {
+    width: 100%;
+    right: -100%;
+    padding: 24px;
+  }
+  .drawer-grid {
+    grid-template-columns: 1fr;
+  }
+  .drawer-item-full {
+    grid-column: span 1;
+  }
+
+  /* Fix Modals on mobile */
+  .modal-box {
+    padding: 20px;
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  /* Login form tweaks */
+  .admin-body .panel-card {
+    padding: 24px !important;
+  }
+
+  /* Table padding */
+  .admin-table th, .admin-table td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+  
+  /* Actions */
+  .header-actions .admin-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
