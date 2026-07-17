@@ -965,6 +965,7 @@ export default function AdminPanel() {
                 {activeTab === "settings" && "Modify administrator login email address and security access passwords."}
               </p>
             </div>
+            </div>
             <div className="header-actions">
               {activeTab === "consultations" && (
                 <button className="admin-btn admin-btn-secondary" onClick={handleDownloadCSV}>
