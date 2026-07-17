@@ -83,6 +83,19 @@ const IconBriefcase = () => (
   </svg>
 );
 
+const IconEye = () => (
+  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+  </svg>
+);
+
+const IconEyeOff = () => (
+  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+  </svg>
+);
+
 interface Specialty {
   id: string;
   title: string;
@@ -239,6 +252,8 @@ export default function AdminPanel() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
   const [authLoading, setAuthLoading] = useState(false);
 
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -778,14 +793,27 @@ export default function AdminPanel() {
 
             <div className="admin-input-group" style={{ margin: 0 }}>
               <label>Password</label>
-              <input
-                type="password"
-                className="admin-input"
-                placeholder="••••••••"
-                value={loginPassword}
-                onChange={(e) => setLoginPassword(e.target.value)}
-                required
-              />
+              <div style={{ position: "relative" }}>
+                <input
+                  type={showLoginPassword ? "text" : "password"}
+                  className="admin-input"
+                  placeholder="••••••••"
+                  value={loginPassword}
+                  onChange={(e) => setLoginPassword(e.target.value)}
+                  style={{ paddingRight: "40px" }}
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowLoginPassword(!showLoginPassword)}
+                  style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", background: "none", border: "none", cursor: "pointer", color: "var(--admin-text-muted)", padding: 0, display: "flex" }}
+                  title={showLoginPassword ? "Hide password" : "Show password"}
+                >
+                  <div style={{ width: "20px", height: "20px" }}>
+                    {showLoginPassword ? <IconEyeOff /> : <IconEye />}
+                  </div>
+                </button>
+              </div>
             </div>
 
             <button
@@ -1521,13 +1549,26 @@ export default function AdminPanel() {
 
                 <div className="admin-input-group" style={{ marginTop: "20px" }}>
                   <label>New Security Password</label>
-                  <input
-                    type="password"
-                    className="admin-input"
-                    placeholder="Enter new password (leave blank to keep current)"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                  />
+                  <div style={{ position: "relative" }}>
+                    <input
+                      type={showNewPassword ? "text" : "password"}
+                      className="admin-input"
+                      placeholder="Enter new password (leave blank to keep current)"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      style={{ paddingRight: "40px" }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowNewPassword(!showNewPassword)}
+                      style={{ position: "absolute", right: "12px", top: "50%", transform: "translateY(-50%)", background: "none", border: "none", cursor: "pointer", color: "var(--admin-text-muted)", padding: 0, display: "flex" }}
+                      title={showNewPassword ? "Hide password" : "Show password"}
+                    >
+                      <div style={{ width: "20px", height: "20px" }}>
+                        {showNewPassword ? <IconEyeOff /> : <IconEye />}
+                      </div>
+                    </button>
+                  </div>
                 </div>
 
                 <button type="submit" className="admin-btn admin-btn-primary" style={{ marginTop: "24px", padding: "12px 24px" }}>
